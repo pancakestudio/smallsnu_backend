@@ -23,4 +23,4 @@
     - pip3 freeze > requirements.txt
 
 ## Git Branch
-- 기능을 추가 할 시 'feature/your_feature_name' 브랜치로 checkout하여 작업 후 develop브랜치로 머지
+- 기능을 추가 할 시 'feature/your_feature_name' 브랜치로 checkout하여 작업 후 develop브랜치로 merge
