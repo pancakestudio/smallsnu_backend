@@ -23,6 +23,8 @@ def building_detail(request, pk):
     serializer = BuildingSerializer(building)
     return Response(serializer.data)
 
+# maybe, It need to be modified according to service format...
+
 @api_view(['POST'])
 def building_post(request, pk):
     params = json.loads(request.body.decode("utf-8"))
@@ -55,6 +57,8 @@ def lecture_list(request):
     lectures = Lecture.objects.all()
     serializer = LectureSerializer(lectures, many=True)
     return Response(serializer.data)
+
+# have to edit route_list
 
 @api_view(['GET'])
 def route_list(request):
