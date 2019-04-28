@@ -57,6 +57,7 @@ class Lecture(models.Model):
     time = models.CharField(max_length=200)
 
 class Post(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=200)
     content = models.TextField()
     username = models.CharField(max_length=200)
