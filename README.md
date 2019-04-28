@@ -24,3 +24,9 @@
 
 ## Git Branch
 - 기능을 추가 할 시 'feature/your_feature_name' 브랜치로 checkout하여 작업 후 develop브랜치로 merge
+
+## Initial DB Setting
+- python3 manage.py migrate
+- python3 manage.py shell < db_seed.py
+- python3 manage.py runserver
+
