@@ -9,6 +9,7 @@ urlpatterns = [
     path('building/', views.building_list),
     path('building/<int:pk>/', views.building_detail),
     path('building/<int:pk>/post/', views.building_post),
+    path('post/<int:postId>/', views.building_post_update),
     path('seminar/', views.seminar_list),
     path('restaurant/', views.restaurant_list),
     path('shuttle/', views.shuttle_list),

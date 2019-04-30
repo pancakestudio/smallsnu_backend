@@ -28,11 +28,29 @@ def building_detail(request, pk):
 @api_view(['POST'])
 def building_post(request, pk):
     params = json.loads(request.body.decode("utf-8"))
+    if params.get('content', '') == '':
+        content = {'warring': 'empty content is not allowed'}
+        return Response(content, status=status.HTTP_400_BAD_REQUEST)
     building = Building.objects.get(pk=pk)
-    post = Post(title=params.get("title", 'no_title'), content=params.get('content', 'no_content'), username=params.get('username', 'no_username'), password=params.get('password', 'no_password'), building=building)
+    post = Post(title=params.get('title', 'no title'), content=params.get('content', 'empty content'), username=params.get('username', 'someone'), password=params.get('password', ''), building=building)
     post.save()
     serializer = PostSerializer(post)
     return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['POST'])
+def building_post_update(request, postId):
+    params = json.loads(request.body.decode("utf-8"))
+    post = Post.objects.get(pk=postId)
+    if post.password == params.get('password', ''):
+        post.title = params.get('title', 'no title')
+        post.content = params.get('content', 'empty content')
+        post.username = params.get('username', 'someone')
+        post.save()
+        serializer = PostSerializer(post)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    else:
+        content = {'warring': 'password is wrong!'}
+        return Response(content, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def seminar_list(request):
