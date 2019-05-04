@@ -19,7 +19,7 @@ def building_list(request):
 
 @api_view(['GET'])
 def building_detail(request, pk):
-    building = Building.objects.get(pk=pk)
+    building = Building.objects.get(code=pk)
     serializer = BuildingSerializer(building)
     return Response(serializer.data)
 
@@ -31,7 +31,7 @@ def building_post(request, pk):
     if params.get('content', '') == '':
         content = {'warring': 'empty content is not allowed'}
         return Response(content, status=status.HTTP_400_BAD_REQUEST)
-    building = Building.objects.get(pk=pk)
+    building = Building.objects.get(code=pk)
     post = Post(title=params.get('title', 'no title'), content=params.get('content', 'empty content'), username=params.get('username', 'someone'), password=params.get('password', ''), building=building)
     post.save()
     serializer = PostSerializer(post)
