@@ -4,6 +4,6 @@ before_install:
   - sudo apt-get install python3
   - sudo apt-get install python3-pip
 install:
-  - pip3 install -r requirements.txt
+  - sudo pip3 install -r requirements.txt
 script:
-  - python3 manage.py test
+  - sudo python3 manage.py test
