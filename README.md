@@ -5,8 +5,8 @@
 | `admin/` | 관리자 페이지 | GET |
 | `map/` | 지도 정보 | GET |
 | `building/` | 전체 건물 리스트 | GET |
-| `building/<int>/` | 건물 세부정보 | GET |
-| `building/<int:buildingId>/post/` | 게시물 등록 | POST |
+| `building/<building_code>/` | 건물 세부정보 | GET |
+| `building/<building_code>/post/` | 게시물 등록 | POST |
 | `post/<int:postId>/` | 게시물 수정 | POST |
 | `seminar/` | 전체 세미나 리스트 | GET |
 | `restaurant/` | 전체 식당 리스트 | GET |
