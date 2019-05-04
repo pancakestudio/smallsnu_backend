@@ -1,0 +1,7 @@
+language: python3
+python:
+  - "3.7.0"
+install:
+  - pip3 install -r requirements.txt
+script:
+  - python3 manage.py test
