@@ -6,6 +6,12 @@ class SpotSerializer(serializers.ModelSerializer):
         model = Spot
         fields = ('id', 'latitude', 'longitude')
 
+class BuildingBasicSerializer(serializers.ModelSerializer):
+    spot = SpotSerializer(read_only=True)
+    class Meta:
+        model = Building
+        fields = ('id', 'code','kr_name', 'en_name', 'spot')
+
 class MapSerializer(serializers.ModelSerializer):
     spots = SpotSerializer(many=True, read_only=True)
     class Meta:
@@ -33,21 +39,25 @@ class RouteSerializer(serializers.ModelSerializer):
         fields = ('start', 'end', 'length', 'edges')
 
 class RestaurantSerializer(serializers.ModelSerializer):
+    building = BuildingBasicSerializer(read_only=True)
     class Meta:
         model = Restaurant
         fields = '__all__'
 
 class SeminarSerializer(serializers.ModelSerializer):
+    building = BuildingBasicSerializer(read_only=True)
     class Meta:
         model = Seminar
         fields = '__all__'
 
 class LectureSerializer(serializers.ModelSerializer):
+    building = BuildingBasicSerializer(read_only=True)
     class Meta:
         model = Lecture
         fields = '__all__'
 
 class PostSerializer(serializers.ModelSerializer):
+    building = BuildingBasicSerializer(read_only=True)
     class Meta:
         model = Post
         fields = '__all__'
