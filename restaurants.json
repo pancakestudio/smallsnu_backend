@@ -1,0 +1,107 @@
+[
+    {
+        "code": "SCO-013",
+        "en_name": "Building number 220",
+        "kr_name": "220동 식당",
+        "operating_hours": "",
+        "building_no": "220"
+    },
+    {
+        "code": "SCO-012",
+        "en_name": "Simple Engineer Restaurant",
+        "kr_name": "공대간이식당",
+        "operating_hours": "",
+        "building_no": "30"
+    },
+    {
+        "code": "SCO-011",
+        "en_name": "Art Complex",
+        "kr_name": "예술계복합연구동 식당",
+        "operating_hours": "",
+        "building_no": "50"
+    },
+    {
+        "code": "SCO-010",
+        "en_name": "301 Engineering",
+        "kr_name": "301동 식당",
+        "operating_hours": "",
+        "building_no": "301"
+    },
+    {
+        "code": "SCO-009",
+        "en_name": "Doo Leh Mee Dam",
+        "kr_name": "두레미담",
+        "operating_hours": "",
+        "building_no": "75-1"
+    },
+    {
+        "code": "SCO-008",
+        "en_name": "Teacher's College",
+        "kr_name": "사범대 4식당",
+        "operating_hours": "",
+        "building_no": "76"
+    },
+    {
+        "code": "SCO-007",
+        "en_name": "Gam Gol",
+        "kr_name": "감골 식당",
+        "operating_hours": "",
+        "building_no": "101"
+    },
+    {
+        "code": "SCO-006",
+        "en_name": "Dongwon Dining Hall",
+        "kr_name": "동원관 식당",
+        "operating_hours": "",
+        "building_no": "113"
+    },
+    {
+        "code": "SCO-005",
+        "en_name": "302 Engineering",
+        "kr_name": "302동 식당",
+        "operating_hours": "",
+        "building_no": "302"
+    },
+    {
+        "code": "SCO-004",
+        "en_name": "Cafeteria Jahayon",
+        "kr_name": "자하연 식당",
+        "operating_hours": "",
+        "building_no": "109"
+    },
+    {
+        "code": "SCO-003",
+        "en_name": "919 Dorms",
+        "kr_name": "919동 기숙사 식당",
+        "operating_hours": "",
+        "building_no": "919-AB"
+    },
+    {
+        "code": "SCO-002",
+        "en_name": "Agriculture and Life Sciences",
+        "kr_name": "농생대 3식당",
+        "operating_hours": "",
+        "building_no": "75-1"
+    },
+    {
+        "code": "SCO-001",
+        "en_name": "Student Center",
+        "kr_name": "학생회관 식당",
+        "operating_hours": "",
+        "building_no": "63"
+    },
+    {
+        "code": "GRD-001",
+        "en_name": "Gwanak Residence Halls",
+        "kr_name": "대학원기숙사식당",
+        "operating_hours": "",
+        "building_no": "901"
+    },
+    {
+        "code": "VET-001",
+        "en_name": "Veterinary",
+        "kr_name": "수의대식당",
+        "operating_hours": "",
+        "building_no": "137-2"
+    }
+]
