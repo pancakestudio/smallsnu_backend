@@ -44,9 +44,12 @@ class Restaurant(models.Model):
 
 class Seminar(models.Model):
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+    talker = models.TextField()
+    description = models.TextField()
     building = models.ForeignKey(Building, related_name='seminars', on_delete=models.CASCADE)
+    where = models.CharField(max_length=200)
     time = models.CharField(max_length=200)
+    link = models.URLField(max_length=200)
 
 class Lecture(models.Model):
     code = models.CharField(max_length=200)
