@@ -29,5 +29,6 @@
 ## Initial DB Setting
 - python3 manage.py migrate
 - python3 manage.py shell < db_seed.py
+- python3 manage.py shell < crawler.py
 - python3 manage.py runserver
 
