@@ -17,14 +17,20 @@ def cseSeminar():
         divs = seminar.select('li > div')
         title = divs[2].text.strip()
         link = "https://cse.snu.ac.kr"+divs[2].find('a')['href']
+        try:
+            existing_seminar = Seminar.objects.get(link=link)
+        except Seminar.DoesNotExist:
+            pass
+        else:
+            continue
         detailReq = requests.get(link)
         detailHtml = detailReq.text
         detailSoup = BeautifulSoup(detailHtml, 'html.parser')
         detailContents = detailSoup.select('div.content div.content')[0].select('div.field-items > div.even')
-        talker = detailContents[0].text if detailContents[0] else "-"+"\nAbout: "+detailContents[5].text if detailContents[5] else "-"
-        time = detailContents[1].text if detailContents[1] else "-"
-        where = detailContents[2].text if detailContents[2] else "-"
-        description = detailContents[4].text if detailContents[4] else "-"
+        talker = detailContents[0].text
+        time = detailContents[1].text
+        where = detailContents[2].text
+        description = detailContents[4].text
         codePattern = re.compile('\d+')
         codeMatch = codePattern.search(where)
         code = ""
