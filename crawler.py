@@ -27,7 +27,13 @@ def cseSeminar():
         detailHtml = detailReq.text
         detailSoup = BeautifulSoup(detailHtml, 'html.parser')
         detailContents = detailSoup.select('div.content div.content')[0].select('div.field-items > div.even')
-        talker = detailContents[0].text
+        talkerData = detailContents[0].select('div.content')[0]
+        talker = talkerData.find(text=True)
+        talkerFrom = talkerData.find('div')
+        for br in talkerFrom.find_all("br"):
+            br.replace_with("-")
+        if talkerFrom.text is not None:
+            talker = talker+"-"+talkerFrom.text
         time = detailContents[1].text
         where = detailContents[2].text
         description = detailContents[4].text
