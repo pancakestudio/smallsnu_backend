@@ -8,10 +8,15 @@
 | `building/<building_code>/` | 건물 세부정보 | GET |
 | `building/<building_code>/post/` | 게시물 등록 | POST |
 | `post/<int:postId>/` | 게시물 수정 | POST |
+| `post/<int:postId>/` | 게시물 조회 | GET |
+| `post/` | 전체 게시물 리스트 | GET |
 | `seminar/` | 전체 세미나 리스트 | GET |
+| `seminar/<int:pk>/` | 세미나 조회 | GET |
 | `restaurant/` | 전체 식당 리스트 | GET |
+| `restaurant/<int:pk>` | 식당 조회 | GET |
 | `shuttle/` | 전체 셔틀 리스트 | GET |
 | `lecture/` | 전체 강의 리스트 | GET |
+| `lecture/<int:pk>` | 강의 조회 | GET |
 | `route/?from=v1&to=v2` | 길 찾기 | GET |
 
 

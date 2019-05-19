@@ -37,20 +37,31 @@ def building_post(request, pk):
     serializer = PostSerializer(post)
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-@api_view(['POST'])
-def building_post_update(request, postId):
-    params = json.loads(request.body.decode("utf-8"))
-    post = Post.objects.get(pk=postId)
-    if post.password == params.get('password', ''):
-        post.title = params.get('title', 'no title')
-        post.content = params.get('content', 'empty content')
-        post.username = params.get('username', 'someone')
-        post.save()
+@api_view(['GET','POST'])
+def building_post_detail(request, postId):
+    if request.method == 'GET':
+        post = Post.objects.get(pk=postId)
         serializer = PostSerializer(post)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    else:
-        content = {'warring': 'password is wrong!'}
-        return Response(content, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        params = json.loads(request.body.decode("utf-8"))
+        post = Post.objects.get(pk=postId)
+        if post.password == params.get('password', ''):
+            post.title = params.get('title', 'no title')
+            post.content = params.get('content', 'empty content')
+            post.username = params.get('username', 'someone')
+            post.save()
+            serializer = PostSerializer(post)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            content = {'warring': 'password is wrong!'}
+            return Response(content, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def post_list(request):
+    posts = Post.objects.all()
+    serializer = PostSerializer(posts, many=True)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def seminar_list(request):
@@ -59,9 +70,21 @@ def seminar_list(request):
     return Response(serializer.data)
 
 @api_view(['GET'])
+def seminar_detail(request, pk):
+    seminar = Seminar.objects.get(pk=pk)
+    serializer = SeminarSerializer(seminar)
+    return Response(serializer.data)
+
+@api_view(['GET'])
 def restaurant_list(request):
     restaurants = Restaurant.objects.all()
     serializer = RestaurantSerializer(restaurants, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def restaurant_detail(request, pk):
+    restaurant = Restaurant.objects.get(pk=pk)
+    serializer = RestaurantSerializer(restaurant)
     return Response(serializer.data)
 
 @api_view(['GET'])
@@ -74,6 +97,12 @@ def shuttle_list(request):
 def lecture_list(request):
     lectures = Lecture.objects.all()
     serializer = LectureSerializer(lectures, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def lecture_detail(request, pk):
+    lecture = Lecture.objects.get(pk=pk)
+    serializer = LectureSerializer(lecture)
     return Response(serializer.data)
 
 # have to edit route_list
