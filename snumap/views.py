@@ -23,21 +23,41 @@ def building_detail(request, pk):
     serializer = BuildingSerializer(building)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def building_restaurant(request, pk):
+    building = Building.objects.get(code=pk)
+    restaurants = Restaurant.objects.filter(building=building)
+    serializer = RestaurantSerializer(restaurants, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def building_seminar(request, pk):
+    building = Building.objects.get(code=pk)
+    seminars = Seminar.objects.filter(building=building)
+    serializer = SeminarSerializer(seminars, many=True)
+    return Response(serializer.data)
+
 # maybe, It need to be modified according to service format...
 
-@api_view(['POST'])
-def building_post(request, pk):
-    params = json.loads(request.body.decode("utf-8"))
-    if params.get('content', '') == '':
-        content = {'warring': 'empty content is not allowed'}
-        return Response(content, status=status.HTTP_400_BAD_REQUEST)
-    building = Building.objects.get(code=pk)
-    post = Post(title=params.get('title', 'no title'), content=params.get('content', 'empty content'), username=params.get('username', 'someone'), password=params.get('password', ''), building=building)
-    post.save()
-    serializer = PostSerializer(post)
-    return Response(serializer.data, status=status.HTTP_201_CREATED)
-
 @api_view(['GET','POST'])
+def building_post(request, pk):
+    if request.method == 'GET':
+        building = Building.objects.get(code=pk)
+        posts = Post.objects.filter(building=building)
+        serializer = PostSerializer(posts, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        params = json.loads(request.body.decode("utf-8"))
+        if params.get('content', '') == '':
+            content = {'warring': 'empty content is not allowed'}
+            return Response(content, status=status.HTTP_400_BAD_REQUEST)
+        building = Building.objects.get(code=pk)
+        post = Post(title=params.get('title', 'no title'), content=params.get('content', 'empty content'), username=params.get('username', 'someone'), password=params.get('password', ''), building=building)
+        post.save()
+        serializer = PostSerializer(post)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['GET','POST','DELETE'])
 def building_post_detail(request, postId):
     if request.method == 'GET':
         post = Post.objects.get(pk=postId)
@@ -56,6 +76,16 @@ def building_post_detail(request, postId):
         else:
             content = {'warring': 'password is wrong!'}
             return Response(content, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        params = json.loads(request.body.decode("utf-8"))
+        post = Post.objects.get(pk=postId)
+        if post.password == params.get('password', ''):
+            post.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            content = {'warring': 'password is wrong!'}
+            return Response(content, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET'])
 def post_list(request):

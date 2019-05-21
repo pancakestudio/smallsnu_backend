@@ -7,8 +7,12 @@
 | `building/` | 전체 건물 리스트 | GET |
 | `building/<building_code>/` | 건물 세부정보 | GET |
 | `building/<building_code>/post/` | 게시물 등록 | POST |
+| `building/<building_code>/post/` | 건물별 게시물 리스트 | GET |
+| `building/<building_code>/restaurant/` | 건물별 식당 리스트 | GET |
+| `building/<building_code>/seminar/` | 건물별 세미나 리스트 | GET |
 | `post/<int:postId>/` | 게시물 수정 | POST |
 | `post/<int:postId>/` | 게시물 조회 | GET |
+| `post/<int:postId>/` | 게시물 삭제 | DELETE |
 | `post/` | 전체 게시물 리스트 | GET |
 | `seminar/` | 전체 세미나 리스트 | GET |
 | `seminar/<int:pk>/` | 세미나 조회 | GET |
