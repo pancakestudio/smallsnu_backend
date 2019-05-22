@@ -3,7 +3,7 @@ import json
 from snumap.models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post
 
 #Load buildings.json
-with open('buildings.json') as data_file_building:    
+with open('new_buildings.json') as data_file_building:
     building_data = json.load(data_file_building)
 
 #Load restaurants.json
@@ -66,8 +66,8 @@ for building in building_data:
     spot.save()
     Building(
         code = building["building_no"],
-        kr_name = building["building_no"] + " 동",
-        en_name = building["building_no"] + " building",
+        kr_name = building["kr_name"],
+        en_name = building["en_name"],
         spot = spot,
         latitude = spot.latitude,
         longitude = spot.longitude,
