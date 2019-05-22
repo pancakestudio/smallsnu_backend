@@ -3,7 +3,7 @@ import json
 from snumap.models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post
 
 #Load buildings.json
-with open('new_buildings.json') as data_file_building:
+with open('buildings3.json') as data_file_building:
     building_data = json.load(data_file_building)
 
 #Load restaurants.json
