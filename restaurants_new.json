@@ -63,13 +63,6 @@
         "building_no": "62-1"
     },
     {
-        "location": "호암교수회관 지상2층",
-        "en_name": "",
-        "kr_name": "르네상스(125동)",
-        "operating_hours": "평일 11:30 - 14:00",
-        "building_no": "125"
-    },
-    {
         "location": "해동학술문화관 지하1층",
         "en_name": "",
         "kr_name": "비비큐(32-1동)",
@@ -124,13 +117,6 @@
         "kr_name": "올리브그린(900동)",
         "operating_hours": "매일 08:30 - 22:30\n토요일 08:30 - 22:30\n일요일 09:00 - 21:00",
         "building_no": "900"
-    },
-    {
-        "location": "연구공원지원시설 지하1층",
-        "en_name": "",
-        "kr_name": "웰스토리(940동)",
-        "operating_hours": "평일 08:00 - 19:00",
-        "building_no": "940"
     },
     {
         "location": "종합교육연구동 지하1층",

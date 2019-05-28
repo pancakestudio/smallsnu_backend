@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post
+from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm
 
 class SpotSerializer(serializers.ModelSerializer):
     class Meta:
@@ -44,6 +44,30 @@ class RestaurantSerializer(serializers.ModelSerializer):
         model = Restaurant
         fields = '__all__'
 
+class CafeSerializer(serializers.ModelSerializer):
+    building = BuildingBasicSerializer(read_only=True)
+    class Meta:
+        model = Cafe
+        fields = '__all__'
+
+class ConvSerializer(serializers.ModelSerializer):
+    building = BuildingBasicSerializer(read_only=True)
+    class Meta:
+        model = Conv
+        fields = '__all__'
+
+class BankSerializer(serializers.ModelSerializer):
+    building = BuildingBasicSerializer(read_only=True)
+    class Meta:
+        model = Bank
+        fields = '__all__'
+
+class AtmSerializer(serializers.ModelSerializer):
+    building = BuildingBasicSerializer(read_only=True)
+    class Meta:
+        model = Atm
+        fields = '__all__'
+
 class SeminarSerializer(serializers.ModelSerializer):
     building = BuildingBasicSerializer(read_only=True)
     class Meta:
@@ -65,9 +89,13 @@ class PostSerializer(serializers.ModelSerializer):
 class BuildingSerializer(serializers.ModelSerializer):
     spot = SpotSerializer(read_only=True)
     restaurants = RestaurantSerializer(many=True, read_only=True)
+    cafes = CafeSerializer(many=True, read_only=True)
+    convs = ConvSerializer(many=True, read_only=True)
+    banks = BankSerializer(many=True, read_only=True)
+    atms = AtmSerializer(many=True, read_only=True)
     seminars = SeminarSerializer(many=True, read_only=True)
     lectures = LectureSerializer(many=True, read_only=True)
     posts = PostSerializer(many=True, read_only=True)
     class Meta:
         model = Building
-        fields = ('id', 'code','kr_name', 'en_name', 'spot', 'latitude', 'longitude', 'info', 'restaurants','seminars','lectures','posts')
+        fields = ('id', 'code','kr_name', 'en_name', 'spot', 'latitude', 'longitude', 'info', 'restaurants','cafes','convs','banks','atms','seminars','lectures','posts')

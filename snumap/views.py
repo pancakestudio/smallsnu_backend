@@ -1,8 +1,8 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post
-from .serializers import SpotSerializer, MapSerializer, EdgeSerializer, ShuttleSerializer, RouteSerializer, RestaurantSerializer, SeminarSerializer, LectureSerializer, PostSerializer, BuildingSerializer
+from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm
+from .serializers import SpotSerializer, MapSerializer, EdgeSerializer, ShuttleSerializer, RouteSerializer, RestaurantSerializer, SeminarSerializer, LectureSerializer, PostSerializer, BuildingSerializer, CafeSerializer, ConvSerializer, BankSerializer, AtmSerializer
 import json
 
 @api_view(['GET'])
@@ -28,6 +28,34 @@ def building_restaurant(request, pk):
     building = Building.objects.get(code=pk)
     restaurants = Restaurant.objects.filter(building=building)
     serializer = RestaurantSerializer(restaurants, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def building_cafe(request, pk):
+    building = Building.objects.get(code=pk)
+    cafes = Cafe.objects.filter(building=building)
+    serializer = CafeSerializer(cafes, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def building_conv(request, pk):
+    building = Building.objects.get(code=pk)
+    convs = Conv.objects.filter(building=building)
+    serializer = ConvSerializer(convs, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def building_bank(request, pk):
+    building = Building.objects.get(code=pk)
+    banks = Bank.objects.filter(building=building)
+    serializer = BankSerializer(banks, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def building_atm(request, pk):
+    building = Building.objects.get(code=pk)
+    atms = Atm.objects.filter(building=building)
+    serializer = AtmSerializer(atms, many=True)
     return Response(serializer.data)
 
 @api_view(['GET'])
@@ -115,6 +143,54 @@ def restaurant_list(request):
 def restaurant_detail(request, pk):
     restaurant = Restaurant.objects.get(pk=pk)
     serializer = RestaurantSerializer(restaurant)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def cafe_list(request):
+    cafes = Cafe.objects.all()
+    serializer = CafeSerializer(cafes, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def cafe_detail(request, pk):
+    cafe = Cafe.objects.get(pk=pk)
+    serializer = CafeSerializer(cafe)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def conv_list(request):
+    convs = Conv.objects.all()
+    serializer = ConvSerializer(convs, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def conv_detail(request, pk):
+    conv = Conv.objects.get(pk=pk)
+    serializer = ConvSerializer(conv)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def bank_list(request):
+    banks = Bank.objects.all()
+    serializer = BankSerializer(banks, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def bank_detail(request, pk):
+    bank = Bank.objects.get(pk=pk)
+    serializer = BankSerializer(bank)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def atm_list(request):
+    atms = Atm.objects.all()
+    serializer = AtmSerializer(atms, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def atm_detail(request, pk):
+    atm = Atm.objects.get(pk=pk)
+    serializer = AtmSerializer(atm)
     return Response(serializer.data)
 
 @api_view(['GET'])

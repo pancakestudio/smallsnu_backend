@@ -36,10 +36,38 @@ class Building(models.Model):
     info = models.TextField()
 
 class Restaurant(models.Model):
-    code = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
     kr_name = models.CharField(max_length=200)
     en_name = models.CharField(max_length=200)
     building = models.ForeignKey(Building, related_name='restaurants', on_delete=models.CASCADE)
+    operating_hours = models.TextField()
+
+class Cafe(models.Model):
+    location = models.CharField(max_length=200)
+    kr_name = models.CharField(max_length=200)
+    en_name = models.CharField(max_length=200)
+    building = models.ForeignKey(Building, related_name='cafes', on_delete=models.CASCADE)
+    operating_hours = models.TextField()
+
+class Conv(models.Model):
+    location = models.CharField(max_length=200)
+    kr_name = models.CharField(max_length=200)
+    en_name = models.CharField(max_length=200)
+    building = models.ForeignKey(Building, related_name='convs', on_delete=models.CASCADE)
+    operating_hours = models.TextField()
+
+class Bank(models.Model):
+    location = models.CharField(max_length=200)
+    kr_name = models.CharField(max_length=200)
+    en_name = models.CharField(max_length=200)
+    building = models.ForeignKey(Building, related_name='banks', on_delete=models.CASCADE)
+    operating_hours = models.TextField()
+
+class Atm(models.Model):
+    location = models.CharField(max_length=200)
+    kr_name = models.CharField(max_length=200)
+    en_name = models.CharField(max_length=200)
+    building = models.ForeignKey(Building, related_name='atms', on_delete=models.CASCADE)
     operating_hours = models.TextField()
 
 class Seminar(models.Model):

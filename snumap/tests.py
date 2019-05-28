@@ -1,22 +1,77 @@
 from django.test import TestCase
-from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post
+from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm
 import json
 # Create your tests here.
 
 class RestTests(TestCase):
     def setUp(self):
-        #Load buildings.json
-        with open('buildings.json') as data_file_building:
+        #Load buildings3.json
+        with open('buildings3.json') as data_file_building:
             building_data = json.load(data_file_building)
 
-        #Load restaurants.json
-        with open('restaurants.json') as data_file_restaurant:
+        #Load restaurants_new.json
+        with open('restaurants_new.json') as data_file_restaurant:    
             restaurant_data = json.load(data_file_restaurant)
+
+        #Load cafes.json
+        with open('cafes.json') as data_file_cafe:    
+            cafe_data = json.load(data_file_cafe)
+
+        #Load convs.json
+        with open('convs.json') as data_file_conv:    
+            conv_data = json.load(data_file_conv)
+
+        #Load banks.json
+        with open('banks.json') as data_file_bank:    
+            bank_data = json.load(data_file_bank)
+
+        #Load atms.json
+        with open('atms.json') as data_file_atm:    
+            atm_data = json.load(data_file_atm)
 
         #Map
         Map(
             link="https://www.openstreetmap.org/node/357964484#map=18/37.45911/126.95242&layers=N",
         ).save()
+
+        #Spot
+        # for building in building_data:
+        #     latitude_mean = (building['coord_1'][0]+building['coord_2'][0]+building['coord_3'][0]+building['coord_4'][0])/(4.0)
+        #     longitude_mean = (building['coord_1'][1]+building['coord_2'][1]+building['coord_3'][1]+building['coord_4'][1])/(4.0)
+        #     Spot(
+        #         latitude=latitude_mean,
+        #         longitude=longitude_mean,
+        #         map=Map.objects.all()[0]
+        #     ).save()
+
+        #Edge
+
+        #Shuttle
+
+        #Route
+
+
+
+
+
+        #Building
+        # for index, building in enumerate(building_data):
+        #     try:
+        #         spot_located = Spot.objects.get(id=(index+1))
+        #     except Spot.DoesNotExist:
+        #         print("error: no such a building spot!")
+        #     except Spot.MultipleObjectsReturned:
+        #         print("error: there is duplicated building spots!")
+        #     Building(
+        #         code = building["building_no"],
+        #         kr_name = building["building_no"] + " 동",
+        #         en_name = building["building_no"] + " building",
+        #         spot = spot_located,
+        #         latitude = spot_located.latitude,
+        #         longitude = spot_located.longitude,
+        #         info = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A cras semper auctor neque vitae tempus quam pellentesque. Nibh ipsum consequat nisl vel pretium lectus quam id. Lectus sit amet est placerat in egestas. Mi sit amet mauris commodo quis imperdiet massa. Arcu non odio euismod lacinia at quis risus sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Egestas sed sed risus pretium quam. Blandit libero volutpat sed cras. Rutrum quisque non tellus orci ac auctor augue. Mauris in aliquam sem fringilla. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Neque laoreet suspendisse interdum consectetur libero. Morbi tristique senectus et netus et malesuada fames ac. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Quis eleifend quam adipiscing vitae proin sagittis. Nibh ipsum consequat nisl vel. Id leo in vitae turpis massa sed."
+        #     ).save()
+
 
         #Spot & Building
         for building in building_data:
@@ -30,8 +85,8 @@ class RestTests(TestCase):
             spot.save()
             Building(
                 code = building["building_no"],
-                kr_name = building["building_no"] + " 동",
-                en_name = building["building_no"] + " building",
+                kr_name = building["kr_name"],
+                en_name = building["en_name"],
                 spot = spot,
                 latitude = spot.latitude,
                 longitude = spot.longitude,
@@ -41,12 +96,54 @@ class RestTests(TestCase):
         #Restaurant
         for restaurant in restaurant_data:
             Restaurant(
-                code=restaurant["code"],
+                location=restaurant["location"],
                 kr_name=restaurant["kr_name"],
                 en_name=restaurant["en_name"],
                 building=Building.objects.get(code=restaurant["building_no"]),
                 operating_hours=restaurant["operating_hours"]
             ).save()
+
+        #Cafe
+        for cafe in cafe_data:
+            Cafe(
+                location=cafe["location"],
+                kr_name=cafe["kr_name"],
+                en_name=cafe["en_name"],
+                building=Building.objects.get(code=cafe["building_no"]),
+                operating_hours=cafe["operating_hours"]
+            ).save()
+
+        #Conv
+        for conv in conv_data:
+            Conv(
+                location=conv["location"],
+                kr_name=conv["kr_name"],
+                en_name=conv["en_name"],
+                building=Building.objects.get(code=conv["building_no"]),
+                operating_hours=conv["operating_hours"]
+            ).save()
+
+        #Bank
+        for bank in bank_data:
+            Bank(
+                location=bank["location"],
+                kr_name=bank["kr_name"],
+                en_name=bank["en_name"],
+                building=Building.objects.get(code=bank["building_no"]),
+                operating_hours=bank["operating_hours"]
+            ).save()
+
+        #Atm
+        for atm in atm_data:
+            Atm(
+                location=atm["location"],
+                kr_name=atm["kr_name"],
+                en_name=atm["en_name"],
+                building=Building.objects.get(code=atm["building_no"]),
+                operating_hours=atm["operating_hours"]
+            ).save()
+
+
 
         #Seminar
 
@@ -193,6 +290,58 @@ class RestTests(TestCase):
 
     def test_restaurant_detail(self):
         response = self.client.get('/restaurant/1/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+
+    def test_cafe_list(self):
+        response = self.client.get('/cafe/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get('/building/1/cafe/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+
+    def test_cafe_detail(self):
+        response = self.client.get('/cafe/1/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+
+    def test_conv_list(self):
+        response = self.client.get('/conv/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get('/building/1/conv/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+
+    def test_conv_detail(self):
+        response = self.client.get('/conv/1/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+
+    def test_bank_list(self):
+        response = self.client.get('/bank/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get('/building/1/bank/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+
+    def test_bank_detail(self):
+        response = self.client.get('/bank/1/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+
+    def test_atm_list(self):
+        response = self.client.get('/atm/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get('/building/1/atm/')
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+
+    def test_atm_detail(self):
+        response = self.client.get('/atm/1/')
         data = response.json()
         self.assertEqual(response.status_code, 200)
 

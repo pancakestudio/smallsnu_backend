@@ -1,14 +1,30 @@
 import json
 
-from snumap.models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post
+from snumap.models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm
 
-#Load buildings.json
+#Load buildings3.json
 with open('buildings3.json') as data_file_building:
     building_data = json.load(data_file_building)
 
-#Load restaurants.json
-with open('restaurants.json') as data_file_restaurant:    
+#Load restaurants_new.json
+with open('restaurants_new.json') as data_file_restaurant:    
     restaurant_data = json.load(data_file_restaurant)
+
+#Load cafes.json
+with open('cafes.json') as data_file_cafe:    
+    cafe_data = json.load(data_file_cafe)
+
+#Load convs.json
+with open('convs.json') as data_file_conv:    
+    conv_data = json.load(data_file_conv)
+
+#Load banks.json
+with open('banks.json') as data_file_bank:    
+    bank_data = json.load(data_file_bank)
+
+#Load atms.json
+with open('atms.json') as data_file_atm:    
+    atm_data = json.load(data_file_atm)
 
 #Map
 Map(
@@ -76,13 +92,75 @@ for building in building_data:
 
 #Restaurant
 for restaurant in restaurant_data:
+    try:
+        building=Building.objects.get(code=restaurant["building_no"])
+    except:
+        print("err rest: "+str(restaurant["building_no"]))
     Restaurant(
-        code=restaurant["code"],
+        location=restaurant["location"],
         kr_name=restaurant["kr_name"],
         en_name=restaurant["en_name"],
         building=Building.objects.get(code=restaurant["building_no"]),
         operating_hours=restaurant["operating_hours"]
     ).save()
+
+#Cafe
+for cafe in cafe_data:
+    try:
+        building=Building.objects.get(code=cafe["building_no"])
+    except:
+        print("err cafe: "+str(cafe["building_no"]))
+    Cafe(
+        location=cafe["location"],
+        kr_name=cafe["kr_name"],
+        en_name=cafe["en_name"],
+        building=Building.objects.get(code=cafe["building_no"]),
+        operating_hours=cafe["operating_hours"]
+    ).save()
+
+#Conv
+for conv in conv_data:
+    try:
+        building=Building.objects.get(code=conv["building_no"])
+    except:
+        print("err conv: "+str(conv["building_no"]))
+    Conv(
+        location=conv["location"],
+        kr_name=conv["kr_name"],
+        en_name=conv["en_name"],
+        building=Building.objects.get(code=conv["building_no"]),
+        operating_hours=conv["operating_hours"]
+    ).save()
+
+#Bank
+for bank in bank_data:
+    try:
+        building=Building.objects.get(code=bank["building_no"])
+    except:
+        print("err bank: "+str(bank["building_no"]))
+    Bank(
+        location=bank["location"],
+        kr_name=bank["kr_name"],
+        en_name=bank["en_name"],
+        building=Building.objects.get(code=bank["building_no"]),
+        operating_hours=bank["operating_hours"]
+    ).save()
+
+#Atm
+for atm in atm_data:
+    try:
+        building=Building.objects.get(code=atm["building_no"])
+    except:
+        print("err atm: "+str(atm["building_no"]))
+    Atm(
+        location=atm["location"],
+        kr_name=atm["kr_name"],
+        en_name=atm["en_name"],
+        building=Building.objects.get(code=atm["building_no"]),
+        operating_hours=atm["operating_hours"]
+    ).save()
+
+
 
 #Seminar
 
