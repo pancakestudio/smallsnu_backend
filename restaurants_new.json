@@ -1,0 +1,254 @@
+[
+    {
+        "location": "아시아연구소 지상1층",
+        "en_name": "",
+        "kr_name": "감골식당(101동)",
+        "operating_hours": "평일 11:00 - 14:00\n평일 17:00 - 18:30",
+        "building_no": "101"
+    },
+    {
+        "location": "동원생활관 지상2층",
+        "en_name": "",
+        "kr_name": "동원생활관식당(113동)",
+        "operating_hours": "평일 11:00 - 14:00\n평일 17:00 - 19:00",
+        "building_no": "113"
+    },
+    {
+        "location": "제4식당(서당골) 지상2층",
+        "en_name": "",
+        "kr_name": "두레미담(76동)",
+        "operating_hours": "평일 11:00 - 14:00\n평일 17:00 - 19:00",
+        "building_no": "76"
+    },
+    {
+        "location": "제3학생식당 지상5층",
+        "en_name": "",
+        "kr_name": "두레미담(75-1동)",
+        "operating_hours": "매일 11:30 - 21:00",
+        "building_no": "75-1"
+    },
+    {
+        "location": "동원생활관 지상1층",
+        "en_name": "",
+        "kr_name": "라운지오(113동)",
+        "operating_hours": "매일 11:00 - 21:00",
+        "building_no": "113"
+    },
+    {
+        "location": "엔지니어하우스 지상1층",
+        "en_name": "",
+        "kr_name": "라쿠치나(1층)(310동)",
+        "operating_hours": "평일 11:30 - 15:00\n평일 17:30 - 21:00",
+        "building_no": "310"
+    },
+    {
+        "location": "엔지니어하우스 지상2층",
+        "en_name": "",
+        "kr_name": "라쿠치나(2층)(310동)",
+        "operating_hours": "매일 11:30 - 15:00\n매일 17:30 - 21:00",
+        "building_no": "310"
+    },
+    {
+        "location": "글로벌공학교육센터 지하1층",
+        "en_name": "",
+        "kr_name": "락구정(38동)",
+        "operating_hours": "매일 11:30 - 15:00\n매일 17:30 - 21:00",
+        "building_no": "38"
+    },
+    {
+        "location": "중앙도서관 관정관 지상3층",
+        "en_name": "",
+        "kr_name": "롯데리아(62-1동)",
+        "operating_hours": "매일 08:00 - 22:00",
+        "building_no": "62-1"
+    },
+    {
+        "location": "호암교수회관 지상2층",
+        "en_name": "",
+        "kr_name": "르네상스(125동)",
+        "operating_hours": "평일 11:30 - 14:00",
+        "building_no": "125"
+    },
+    {
+        "location": "해동학술문화관 지하1층",
+        "en_name": "",
+        "kr_name": "비비큐(32-1동)",
+        "operating_hours": "평일 09:00 - 22:00\n주말 09:00 - 21:00",
+        "building_no": "32-1"
+    },
+    {
+        "location": "글로벌공학교육센터 지상1층",
+        "en_name": "",
+        "kr_name": "비비큐 프리미엄(38동)",
+        "operating_hours": "평일 09:00 - 22:00\n주말 09:00 - 21:00",
+        "building_no": "38"
+    },
+    {
+        "location": "대학원연구동(2단계) 지상1층",
+        "en_name": "",
+        "kr_name": "샤반(500동)",
+        "operating_hours": "매일 11:00 - 14:30\n매일 16:30 - 20:00",
+        "building_no": "500"
+    },
+    {
+        "location": "제4식당(서당골) 지상1층",
+        "en_name": "",
+        "kr_name": "서당골 4식당(1층)(76동)",
+        "operating_hours": "평일 11:00 - 14:00\n평일 17:00 - 19:00",
+        "building_no": "76"
+    },
+    {
+        "location": "동원생활관 지상3층",
+        "en_name": "",
+        "kr_name": "소담마루(113동)",
+        "operating_hours": "평일 11:00 - 15:00\n평일 17:00 - 21:00\n토요일 11:00 - 15:00\n토요일 17:00 - 21:00",
+        "building_no": "113"
+    },
+    {
+        "location": "예술복합연구동 지상1층",
+        "en_name": "",
+        "kr_name": "아름드리(74동)",
+        "operating_hours": "평일 11:30 - 14:00\n평일 17:00 - 19:00",
+        "building_no": "74"
+    },
+    {
+        "location": "(관악사)대학원 생활관 지상1층",
+        "en_name": "",
+        "kr_name": "아워홈(901동)",
+        "operating_hours": "매일 07:30 - 09:30\n매일 11:30 - 13:30\n매일 17:30 - 19:30",
+        "building_no": "901"
+    },
+    {
+        "location": "(관악학생생활관)대학원 생활관 지하2층",
+        "en_name": "",
+        "kr_name": "올리브그린(900동)",
+        "operating_hours": "매일 08:30 - 22:30\n토요일 08:30 - 22:30\n일요일 09:00 - 21:00",
+        "building_no": "900"
+    },
+    {
+        "location": "연구공원지원시설 지하1층",
+        "en_name": "",
+        "kr_name": "웰스토리(940동)",
+        "operating_hours": "평일 08:00 - 19:00",
+        "building_no": "940"
+    },
+    {
+        "location": "종합교육연구동 지하1층",
+        "en_name": "",
+        "kr_name": "웰스토리(220동)",
+        "operating_hours": "평일 11:00 - 14:00\n평일 17:00 - 19:00",
+        "building_no": "220"
+    },
+    {
+        "location": "자하연식당 지상2층",
+        "en_name": "",
+        "kr_name": "자하연식당(2층)(109동)",
+        "operating_hours": "평일 11:00 - 14:00\n평일 17:00 - 19:00",
+        "building_no": "109"
+    },
+    {
+        "location": "자하연식당 지상3층",
+        "en_name": "",
+        "kr_name": "자하연식당(3층)(109동)",
+        "operating_hours": "평일 11:30 - 19:00\n토요일 11:30 - 14:00",
+        "building_no": "109"
+    },
+    {
+        "location": "제3학생식당 지상3층",
+        "en_name": "",
+        "kr_name": "농생대 3식당(3층)(75-1동)",
+        "operating_hours": "평일 11:00 - 14:00",
+        "building_no": "75-1"
+    },
+    {
+        "location": "제3학생식당 지상4층",
+        "en_name": "",
+        "kr_name": "농생대 3식당(4층)(75-1동)",
+        "operating_hours": "매일 11:30 - 13:30\n매일 17:00 - 19:00",
+        "building_no": "75-1"
+    },
+    {
+        "location": "제1공학관 지상1층",
+        "en_name": "",
+        "kr_name": "제1공학관식당(1층)(301동)",
+        "operating_hours": "평일 11:30 - 14:00",
+        "building_no": "301"
+    },
+    {
+        "location": "제1공학관 지하1층",
+        "en_name": "",
+        "kr_name": "제1공학관식당(B1층)(301동)",
+        "operating_hours": "평일 11:00 - 14:00\n평일 17:00 - 19:00\n토요일 11:00 - 13:30",
+        "building_no": "301"
+    },
+    {
+        "location": "제2공학관 지상1층",
+        "en_name": "",
+        "kr_name": "제2공학관식당(302동)",
+        "operating_hours": "평일 11:00 - 14:00\n평일 17:00 - 19:00",
+        "building_no": "302"
+    },
+    {
+        "location": "(관악학생생활관)대학원 생활관 지하2층",
+        "en_name": "",
+        "kr_name": "치킨빡스(900동)",
+        "operating_hours": "매일 16:00 - 01:00",
+        "building_no": "900"
+    },
+    {
+        "location": "제1공학관 지하1층",
+        "en_name": "",
+        "kr_name": "퀴즈노스(301동)",
+        "operating_hours": "평일 07:00 - 22:00\n주말 08:00 - 22:00",
+        "building_no": "301"
+    },
+    {
+        "location": "대림국제관 지상1층",
+        "en_name": "",
+        "kr_name": "텐카이핀(137-2동)",
+        "operating_hours": "평일 10:00 - 21:00\n토요일 11:00 - 21:00",
+        "building_no": "137-2"
+    },
+    {
+        "location": "공대간이식당 지상1층",
+        "en_name": "",
+        "kr_name": "투굿(공대간이식당)(30-2동)",
+        "operating_hours": "평일 09:00 - 18:30\n토요일 09:00 - 18:30",
+        "building_no": "30-2"
+    },
+    {
+        "location": "대림국제관 지상1층",
+        "en_name": "",
+        "kr_name": "포포인(137-2동)",
+        "operating_hours": "평일 10:00 - 21:00\n주말 11:00 - 21:00",
+        "building_no": "137-2"
+    },
+    {
+        "location": "(관악사)학부 생활관 지상1층",
+        "en_name": "",
+        "kr_name": "학부기숙사식당(919동)",
+        "operating_hours": "평일 07:30 - 09:30\n평일 11:30 - 13:30\n평일 17:30 - 19:30\n주말 08:00 - 09:30\n주말 11:30 - 13:30\n주말 17:30 - 19:30",
+        "building_no": "919-AB"
+    },
+    {
+        "location": "학생회관 지상1층",
+        "en_name": "",
+        "kr_name": "학생회관식당(1층)(63동)",
+        "operating_hours": "평일 08:00 - 19:00\n토요일 11:30 - 14:00\n토요일 17:00 - 19:00\n일요일 11:30 - 14:00\n일요일 17:00 - 19:00",
+        "building_no": "63"
+    },
+    {
+        "location": "학생회관 지하1층",
+        "en_name": "",
+        "kr_name": "학생회관식당(지하1층)(63동)",
+        "operating_hours": "평일 11:00 - 17:30",
+        "building_no": "63"
+    },
+    {
+        "location": "중앙도서관 관정관 지상1층",
+        "en_name": "",
+        "kr_name": "휴 김밥(62-1동)",
+        "operating_hours": "평일 09:00 - 20:00\n토요일 09:00 - 20:00",
+        "building_no": "62-1"
+    }
+]

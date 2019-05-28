@@ -1,0 +1,359 @@
+[
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "자하연식당 농협 ATM(109동)",
+      "operating_hours": "평일 07:00 - 23:30",
+      "building_no": "109"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "환경대학원 농협ATM(82동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "82"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "인문관5 농협ATM(6동)",
+      "operating_hours": "매일 08:00 - 23:00",
+      "building_no": "6"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "사범관3 농협ATM(11동))",
+      "operating_hours": "매일 08:00 - 23:00",
+      "building_no": "11"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "예술관 음대2 농협ATM(54동)",
+      "operating_hours": "평일 08:30 - 19:00\n토요일 09:00 - 16:00",
+      "building_no": "54"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "법학관1 농협ATM(15동)",
+      "operating_hours": "매일 08:00 - 23:00",
+      "building_no": "15"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "약학관3 신한ATM(20동)",
+      "operating_hours": "평일 07:00 - 23:30",
+      "building_no": "20"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "행정관 농협ATM(60동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "60"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "행정관 우체국365ATM(60동)",
+      "operating_hours": "평일 07:00 - 23:30",
+      "building_no": "60"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "행정관 신한ATM(60동)",
+      "operating_hours": "평일 07:00 - 23:30",
+      "building_no": "60"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "국제대학원2 농협ATM(140-1동)",
+      "operating_hours": "매일 08:00 - 23:00",
+      "building_no": "140"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "생활과학대학 농협ATM(222동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "222"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "생활과학대학 신한ATM(222동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "222"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "중앙도서관 신한ATM(62동)",
+      "operating_hours": "평일 07:00 - 23:00",
+      "building_no": "62"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "약학관3 농협ATM(20동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "20"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "중앙도서관 농협ATM(62동)",
+      "operating_hours": "평일 07:00 - 23:00",
+      "building_no": "62"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "학생회관 농협 ATM(63동)",
+      "operating_hours": "평일 07:00 - 23:00",
+      "building_no": "63"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "보건대학원 농협ATM(221동)",
+      "operating_hours": "평일 07:00 - 23:00",
+      "building_no": "221"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "관악사 대학원 생활관 신한ATM(900동)",
+      "operating_hours": "평일 07:00 - 23:00",
+      "building_no": "900"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "종합교육연구동 신한ATM(220동)",
+      "operating_hours": "평일 07:00 - 23:00",
+      "building_no": "220"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "아시아연구소 농협ATM(101동)",
+      "operating_hours": "매일 08:00 - 23:00",
+      "building_no": "101"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "사회과학관 농협ATM(16동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "16"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "사회과학관 신한ATM(16동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "16"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "동원생활관 농협ATM(113동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "113"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "동원생활관 신한ATM(113동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "113"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "관악사 학부 생활관 신한ATM(919동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "919-AB"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "관악사 학부 생활관 농협ATM(919동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "919-AB"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "SK경영관 농협ATM(58동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "58"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "행정대학원 농협ATM(57동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "57"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "약학관2 농협ATM(29동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "29"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "대학원연구동2단계 농협ATM(500동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "500"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "대학원연구동2단계 신한ATM(500동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "500"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "대림국제관 농협ATM(137-2동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "137-2"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "롯데국제교육관 농협ATM(152-1동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "152-1"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "제3학생식당 농협ATM(75-1동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "75-1"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "제3학생식당 신한ATM(75-1동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "75-1"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "공학관8 농협ATM(37동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "37"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "신양학술정보관 농협ATM(44-1동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "44-1"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "신양학술정보관 신한ATM(44-1동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "44-1"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "수의과대학 농협ATM(85동)",
+      "operating_hours": "평일 09:00 - 23:00",
+      "building_no": "85"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "반도체교육관 농협ATM(104-1동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "104-1"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "포스코스포츠센터 농협ATM(71-2동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "71-2"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "기초전력연구소 농협ATM(130동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "130"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "유전공학연구소 신한ATM(105동)",
+      "operating_hours": "평일 07:00 - 23:30",
+      "building_no": "105"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "신소재공동연구소 농협ATM(131동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "131"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "치의학대학원 첨단교육연구복합단지 농협ATM(86동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "86"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "치의학대학원 첨단교육연구복합단지 신한ATM(86동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "86"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "제1공학관 농협ATM(301동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "301"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "제1공학관 신한ATM(301동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "301"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "제1공학관 우리ATM(302동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "302"
+    },
+    {
+      "location" : "",
+      "en_name": "ATM",
+      "kr_name": "제1공학관 농협ATM(302동)",
+      "operating_hours": "평일 08:00 - 23:00",
+      "building_no": "302"
+    }
+]

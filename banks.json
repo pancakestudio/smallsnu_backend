@@ -1,0 +1,65 @@
+[
+    {
+      "location" : "",
+      "en_name": "Bank",
+      "kr_name": "신양인문학술 정보관 우리 지점(4동)",
+      "operating_hours": "평일 09:00 - 16:00",
+      "building_no": "4"
+    },
+    {
+      "location" : "",
+      "en_name": "Bank",
+      "kr_name": "자하연식당 농협지점(109동)",
+      "operating_hours": "평일 09:30 - 16:00",
+      "building_no": "109"
+    },
+    {
+      "location" : "",
+      "en_name": "Bank",
+      "kr_name": "학생회관 농협지점(63동)",
+      "operating_hours": "평일 09:00 - 16:00",
+      "building_no": "63"
+    },
+    {
+      "location" : "",
+      "en_name": "Bank",
+      "kr_name": "학생회관 신한지점(63동)",
+      "operating_hours": "평일 09:00 - 16:00",
+      "building_no": "63"
+    },
+    {
+      "location" : "",
+      "en_name": "Bank",
+      "kr_name": "SK경영관 농협지점(58동)",
+      "operating_hours": "평일 09:00 - 16:00",
+      "building_no": "58"
+    },
+    {
+      "location" : "",
+      "en_name": "Bank",
+      "kr_name": "농업생명과학대학 농협지점(200동)",
+      "operating_hours": "평일 09:00 - 16:00",
+      "building_no": "200"
+    },
+    {
+      "location" : "",
+      "en_name": "Bank",
+      "kr_name": "44-1동 신한지점(44-1동)",
+      "operating_hours": "평일 09:00 - 16:00",
+      "building_no": "44-1"
+    },
+    {
+      "location" : "",
+      "en_name": "Bank",
+      "kr_name": "대학원연구동1단계 농협지점(39동)",
+      "operating_hours": "평일 09:00 - 16:00",
+      "building_no": "39"
+    },
+    {
+      "location" : "",
+      "en_name": "Bank",
+      "kr_name": "제1공학관 농협지점(301동)",
+      "operating_hours": "평일 09:00 - 16:00",
+      "building_no": "301"
+    }
+]

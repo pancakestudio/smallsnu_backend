@@ -1,0 +1,114 @@
+[
+    {
+        "location": "중앙도서관 관정관 지상1층",
+        "en_name": "CU(62-1 DONG)",
+        "kr_name": "CU(62-1동)",
+        "operating_hours": "매일 07:00 - 23:00",
+        "building_no": "62-1"
+    },
+    {
+        "location": "제1공학관 지하1층",
+        "en_name": "CU(301 DONG)",
+        "kr_name": "CU(301동)",
+        "operating_hours": "평일 08:00 - 22:00\n주말 09:00 - 18:00",
+        "building_no": "301"
+    },
+    {
+        "location": "신양학술정보관Ⅲ 지상1층",
+        "en_name": "CU(16-1 DONG)",
+        "kr_name": "CU(16-1동)",
+        "operating_hours": "매일 00:00 - 24:00",
+        "building_no": "16-1"
+    },
+    {
+        "location": "해동학술문화관 지하1층",
+        "en_name": "CU(32-1 DONG)",
+        "kr_name": "CU(32-1동)",
+        "operating_hours": "평일 07:30 - 21:00\n토요일 12:00 - 17:00",
+        "building_no": "32-1"
+    },
+    {
+        "location": "(관악학생생활관)대학원 생활관 지하2층",
+        "en_name": "GS25(900 DONG)",
+        "kr_name": "GS25(900동)",
+        "operating_hours": "매일 00:00 - 00:00",
+        "building_no": "900"
+    },
+    {
+        "location": "제4식당(서당골) 지상2층",
+        "en_name": "Cafeteria 4 Snack Bar (Hanaro Mart)(76 DONG)",
+        "kr_name": "하나로마트(제4식당)(76동)",
+        "operating_hours": "평일 09:00 - 18:00",
+        "building_no": "76"
+    },
+    {
+        "location": "중앙도서관 본관 지상3층",
+        "en_name": "SNUCO(University Library)(62 DONG)",
+        "kr_name": "스누코(중앙도서관)(62동)",
+        "operating_hours": "평일 08:00 - 22:00\n주말 08:00 - 20:00",
+        "building_no": "62"
+    },
+    {
+        "location": "학생회관 지상1층",
+        "en_name": "SNUCO(Student Center)(63 DONG)",
+        "kr_name": "스누코(학생회관)(63동)",
+        "operating_hours": "평일 08:00 - 20:00\n주말 08:00 - 19:00",
+        "building_no": "63"
+    },
+    {
+        "location": "아시아연구소 지상1층",
+        "en_name": "SNUPlex(101 DONG)",
+        "kr_name": "스누플렉스(101동)",
+        "operating_hours": "평일 09:00 - 19:00",
+        "building_no": "101"
+    },
+    {
+        "location": "종합교육연구동 지하1층",
+        "en_name": "SNUCO(Building No. 220)(220 DONG)",
+        "kr_name": "스누코(220동)(220동)",
+        "operating_hours": "평일 09:00 - 19:00",
+        "building_no": "220"
+    },
+    {
+        "location": "(관악사)학부 생활관 지상1층",
+        "en_name": "SNUCO(Dormitory)(919 DONG)",
+        "kr_name": "스누코(기숙사)(919동)",
+        "operating_hours": "매일 08:00 - 01:30",
+        "building_no": "919-AB"
+    },
+    {
+        "location": "동원생활관 지상1층",
+        "en_name": "SNUCO(Dongwon)(113 DONG)",
+        "kr_name": "스누코(동원생활관)(113동)",
+        "operating_hours": "평일 08:00 - 19:30\n토요일 09:00 - 17:00",
+        "building_no": "113"
+    },
+    {
+        "location": "대학원연구동(2단계) 지상1층",
+        "en_name": "SNUCO(Building No. 500)(500 DONG)",
+        "kr_name": "스누코(500동)(500동)",
+        "operating_hours": "평일 08:30 - 19:00",
+        "building_no": "500"
+    },
+    {
+        "location": "수의과대학 지상3층",
+        "en_name": "Veterinary College Rest Snack Bar(85 DONG)",
+        "kr_name": "수의대 휴게매점(85동)",
+        "operating_hours": "평일 09:00 - 18:00",
+        "building_no": "85"
+    },
+    {
+        "location": "제3학생식당 지상4층",
+        "en_name": "SNUCO(No.3 Cafeteria)(75-1 DONG)",
+        "kr_name": "스누코(3식당)(75-1동)",
+        "operating_hours": "평일 08:00 - 19:30",
+        "building_no": "75-1"
+    },
+    {
+        "location": "포스코스포츠센터 지상1층",
+        "en_name": "ProShop(71-2 DONG)",
+        "kr_name": "프로샵(71-2동)",
+        "operating_hours": "평일 07:30 - 21:00",
+        "building_no": "71-2"
+    }
+]

@@ -1,0 +1,191 @@
+[
+    {
+        "location": "국제대학원 지상2층",
+        "en_name": "CNN CAFE(140 DONG)",
+        "kr_name": "CNN CAFE(140동)",
+        "operating_hours": "평일 08:30 - 21:00\n토요일 10:00 - 19:00",
+        "building_no": "140"
+    },
+    {
+        "location": "학생회관 지상1층",
+        "en_name": "Flu id(63 DONG)",
+        "kr_name": "Flu id(63동)",
+        "operating_hours": "평일 08:00 - 19:30\n토요일 09:00 - 14:30\n일요일 09:00 - 14:30",
+        "building_no": "63"
+    },
+    {
+        "location": "(관악사)대학원 생활관 지상1층",
+        "en_name": "GRAN(901 DONG)",
+        "kr_name": "그랑(901동)",
+        "operating_hours": "매일 07:30 - 21:00",
+        "building_no": "901"
+    },
+    {
+        "location": "관악사후생관 지상1층",
+        "en_name": "Global House(920 DONG)",
+        "kr_name": "글로벌하우스(920동)",
+        "operating_hours": "매일 15:00 - 02:00",
+        "building_no": "920"
+    },
+    {
+        "location": "CJ어학관 지상1층",
+        "en_name": "Neutinamu Bldg. 137(137-1 DONG)",
+        "kr_name": "느티나무 137동점(137-1동)",
+        "operating_hours": "평일 07:00 - 19:00\n토요일 09:30 - 17:00",
+        "building_no": "137-1"
+    },
+    {
+        "location": "자하연식당 지상2층",
+        "en_name": "Neutinamu Jahayeon(109 DONG)",
+        "kr_name": "느티나무 자하연점(109동)",
+        "operating_hours": "평일 08:30 - 19:00",
+        "building_no": "109"
+    },
+    {
+        "location": "예술복합연구동 지상1층",
+        "en_name": "Hollys(74 DONG)",
+        "kr_name": "할리스(74동)",
+        "operating_hours": "매일 08:00 - 22:00",
+        "building_no": "74"
+    },
+    {
+        "location": "신양인문학술정보관 지상1층",
+        "en_name": "The Mug(4 DONG)",
+        "kr_name": "머그(4동)",
+        "operating_hours": "평일 08:00 - 19:40\n토요일 09:00 - 16:00",
+        "building_no": "4"
+    },
+    {
+        "location": "법학도서관 지상1층",
+        "en_name": "Eyagi(72 DONG)",
+        "kr_name": "이야기(72동)",
+        "operating_hours": "평일 08:00 - 20:00\n토요일 10:00 - 18:00",
+        "building_no": "72"
+    },
+    {
+        "location": "예술관(음대)2 지상1층",
+        "en_name": "Neutinamu College of Music(54 DONG)",
+        "kr_name": "느티나무 음대점(54동)",
+        "operating_hours": "평일 08:30 - 19:00",
+        "building_no": "54"
+    },
+    {
+        "location": "사범교육협력센터 지하1층",
+        "en_name": "THE LAB 24/7(12 DONG)",
+        "kr_name": "더 랩 24/7(12동)",
+        "operating_hours": "평일 08:00 - 21:00\n토요일 09:00 - 18:00",
+        "building_no": "12"
+    },
+    {
+        "location": "제4식당(서당골) 지상1층",
+        "en_name": "Cafe Duremidam(76 DONG)",
+        "kr_name": "카페 두레미담(76동)",
+        "operating_hours": "평일 08:30 - 19:00",
+        "building_no": "76"
+    },
+    {
+        "location": "사범대학 간이식당 지상1층",
+        "en_name": "Pascucci(111 DONG)",
+        "kr_name": "파스쿠치(111동)",
+        "operating_hours": "매일 08:00 - 22:00",
+        "building_no": "111"
+    },
+    {
+        "location": "중앙도서관 본관 지상1층",
+        "en_name": "Neutinamu Central Library(62 DONG)",
+        "kr_name": "느티나무 중앙도서관점(62동)",
+        "operating_hours": "평일 08:00 - 19:00",
+        "building_no": "62"
+    },
+    {
+        "location": "신양학술정보관Ⅲ 지상1층",
+        "en_name": "Coffee&Tea(16-1 DONG)",
+        "kr_name": "커피앤티(16-1동)",
+        "operating_hours": "평일 08:00 - 21:00\n주말 10:00 - 18:00",
+        "building_no": "16-1"
+    },
+    {
+        "location": "중앙도서관 관정관 지상1층",
+        "en_name": "Paris Baguette(62-1 DONG)",
+        "kr_name": "파리바게트(62-1동)",
+        "operating_hours": "매일 07:00 - 22:00",
+        "building_no": "62-1"
+    },
+    {
+        "location": "학생회관 지상2층",
+        "en_name": "Rouge Snack(63 DONG)",
+        "kr_name": "라운지스낵(63동)",
+        "operating_hours": "",
+        "building_no": "63"
+    },
+    {
+        "location": "(관악학생생활관)대학원 생활관 지하2층",
+        "en_name": "Shilla Bakery(900 DONG)",
+        "kr_name": "신라명과(900동))",
+        "operating_hours": "평일 07:00 - 23:00\n주말 08:00 - 22:00",
+        "building_no": "900"
+    },
+    {
+        "location": "학생문예관 지상1층",
+        "en_name": "Dahyang-mandang(67 DONG)",
+        "kr_name": "다향만당(67동)",
+        "operating_hours": "평일 10:30 - 19:30",
+        "building_no": "67"
+    },
+    {
+        "location": "종합교육연구동 지하1층",
+        "en_name": "Wellstory cafe(220 DONG)",
+        "kr_name": "웰스토리 카페(220동)",
+        "operating_hours": "평일 10:00 - 18:00",
+        "building_no": "220"
+    },
+    {
+        "location": "동원생활관 지상1층",
+        "en_name": "Neutinamu Dongwon Dining Hall(113 DONG)",
+        "kr_name": "느티나무 동원관점(113동)",
+        "operating_hours": "평일 08:30 - 19:00\n토요일 09:00 - 16:00",
+        "building_no": "113"
+    },
+    {
+        "location": "농업생명과학대학 지상1층",
+        "en_name": "BeLePi(200 DONG)",
+        "kr_name": "베레피(200동)",
+        "operating_hours": "평일 08:00 - 20:00\n토요일 09:00 - 18:00",
+        "building_no": "200"
+    },
+    {
+        "location": "대학원연구동(2단계) 지상1층",
+        "en_name": "Twosome Place(500 DONG)",
+        "kr_name": "투썸플레이스(500동)",
+        "operating_hours": "매일 08:00 - 22:00",
+        "building_no": "500"
+    },
+    {
+        "location": "해동학술문화관 지상1층",
+        "en_name": "THE LAB 24/7(32-1 DONG)",
+        "kr_name": "더 랩 24/7(32-1동)",
+        "operating_hours": "평일 08:00 - 21:00\n토요일 09:00 - 18:00",
+        "building_no": "32-1"
+    },
+    {
+        "location": "신양학술정보관 지상1층",
+        "en_name": "The Mug(44-1 DONG)",
+        "kr_name": "머그(44-1동)",
+        "operating_hours": "평일 08:00 - 19:40\n토요일 09:00 - 16:00",
+        "building_no": "44-1"
+    },
+    {
+        "location": "미술관 지상1층",
+        "en_name": "MOA Cafe(151 DONG)",
+        "kr_name": "모아 카페(151동)",
+        "operating_hours": "평일 08:00 - 18:00\n주말 10:00 - 18:00",
+        "building_no": "151"
+    },
+    {
+        "location": "제1공학관 지하1층",
+        "en_name": "toogood(301 DONG)",
+        "kr_name": "투굿(301동)",
+        "operating_hours": "평일 08:00 - 19:00",
+        "building_no": "301"
+    }
+]

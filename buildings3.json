@@ -840,6 +840,48 @@
         "en_name": "College of Engineering 1(30DONG)"
     },
     {
+        "building_no": "30-2",
+        "coord_1": [
+            37.45729,
+            126.95062
+        ],
+        "coord_2": [
+            37.45724,
+            126.95063
+        ],
+        "coord_3": [
+            37.45719,
+            126.95084
+        ],
+        "coord_4": [
+            37.45723,
+            126.95091
+        ],
+        "kr_name": "공대간이식당(30-2동)",
+        "en_name": "College of Enginerring Cafeteria(30-2DONG)"
+    },
+    {
+        "building_no": "32-1",
+        "coord_1": [
+            37.45615,
+            126.94962
+        ],
+        "coord_2": [
+            37.45590,
+            126.94970
+        ],
+        "coord_3": [
+            37.45593,
+            126.94988
+        ],
+        "coord_4": [
+            37.45618,
+            126.94979
+        ],
+        "kr_name": "해동학술문화관(32-1동)",
+        "en_name": "Haedong Student Center(32-1DONG)"
+    },
+    {
         "building_no": "31",
         "coord_1": [
             37.456854,
