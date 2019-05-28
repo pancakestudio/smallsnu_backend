@@ -9,6 +9,10 @@
 | `building/<building_code>/post/` | 게시물 등록 | POST |
 | `building/<building_code>/post/` | 건물별 게시물 리스트 | GET |
 | `building/<building_code>/restaurant/` | 건물별 식당 리스트 | GET |
+| `building/<building_code>/cafe/` | 건물별 카페 리스트 | GET |
+| `building/<building_code>/conv/` | 건물별 편의점 리스트 | GET |
+| `building/<building_code>/bank/` | 건물별 은행 리스트 | GET |
+| `building/<building_code>/atm/` | 건물별 ATM 리스트 | GET |
 | `building/<building_code>/seminar/` | 건물별 세미나 리스트 | GET |
 | `post/<int:postId>/` | 게시물 수정 | POST |
 | `post/<int:postId>/` | 게시물 조회 | GET |
@@ -17,7 +21,15 @@
 | `seminar/` | 전체 세미나 리스트 | GET |
 | `seminar/<int:pk>/` | 세미나 조회 | GET |
 | `restaurant/` | 전체 식당 리스트 | GET |
-| `restaurant/<int:pk>` | 식당 조회 | GET |
+| `restaurant/<int:pk>/` | 식당 조회 | GET |
+| `cafe/` | 전체 카페 리스트 | GET |
+| `cafe/<int:pk>/` | 카페 조회 | GET |
+| `conv/` | 전체 편의점 리스트 | GET |
+| `conv/<int:pk>/` | 편의점 조회 | GET |
+| `bank/` | 전체 은행 리스트 | GET |
+| `bank/<int:pk>/` | 은행 조회 | GET |
+| `atm/` | 전체 ATM 리스트 | GET |
+| `atm/<int:pk>/` | ATM 조회 | GET |
 | `shuttle/` | 전체 셔틀 리스트 | GET |
 | `lecture/` | 전체 강의 리스트 | GET |
 | `lecture/<int:pk>` | 강의 조회 | GET |
