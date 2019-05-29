@@ -1,8 +1,8 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm
-from .serializers import SpotSerializer, MapSerializer, EdgeSerializer, ShuttleSerializer, RouteSerializer, RestaurantSerializer, SeminarSerializer, LectureSerializer, PostSerializer, BuildingSerializer, CafeSerializer, ConvSerializer, BankSerializer, AtmSerializer
+from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm, Comment
+from .serializers import SpotSerializer, MapSerializer, EdgeSerializer, ShuttleSerializer, RouteSerializer, RestaurantSerializer, SeminarSerializer, LectureSerializer, PostSerializer, BuildingSerializer, CafeSerializer, ConvSerializer, BankSerializer, AtmSerializer, CommentSerializer
 import json
 
 @api_view(['GET'])
@@ -114,6 +114,67 @@ def building_post_detail(request, postId):
             content = {'warring': 'password is wrong!'}
             return Response(content, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['POST'])
+def building_post_like(request, postId):
+    post = Post.objects.get(pk=postId)
+    post.like = post.like+1
+    post.save()
+    serializer = PostSerializer(post)
+    return Response(serializer.data)
+
+@api_view(['GET','POST'])
+def building_post_comment(request, postId):
+    if request.method == 'GET':
+        post = Post.objects.get(pk=postId)
+        comments = Comment.objects.filter(post=post)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        params = json.loads(request.body.decode("utf-8"))
+        if params.get('content', '') == '':
+            content = {'warring': 'empty content is not allowed'}
+            return Response(content, status=status.HTTP_400_BAD_REQUEST)
+        post = Post.objects.get(pk=postId)
+        comment = Comment(content=params.get('content', 'empty content'), username=params.get('username', 'someone'), password=params.get('password', ''), post=post)
+        comment.save()
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['GET','POST','DELETE'])
+def comment_detail(request, commentId):
+    if request.method == 'GET':
+        comment = Comment.objects.get(pk=commentId)
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        params = json.loads(request.body.decode("utf-8"))
+        comment = Comment.objects.get(pk=commentId)
+        if comment.password == params.get('password', ''):
+            comment.content = params.get('content', 'empty content')
+            comment.username = params.get('username', 'someone')
+            comment.save()
+            serializer = CommentSerializer(comment)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            content = {'warring': 'password is wrong!'}
+            return Response(content, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        params = json.loads(request.body.decode("utf-8"))
+        comment = Comment.objects.get(pk=commentId)
+        if comment.password == params.get('password', ''):
+            comment.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            content = {'warring': 'password is wrong!'}
+            return Response(content, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def comment_like(request, commentId):
+    comment = Comment.objects.get(pk=commentId)
+    comment.like = comment.like+1
+    comment.save()
+    serializer = CommentSerializer(comment)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def post_list(request):

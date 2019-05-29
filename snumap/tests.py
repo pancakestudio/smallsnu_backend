@@ -252,7 +252,29 @@ class RestTests(TestCase):
         self.assertEqual(response.status_code, 201)
         response = self.client.delete('/post/'+str(postId)+'/', json.dumps({'password': '1233'}), content_type="application/json")
         self.assertEqual(response.status_code, 400)
+        response = self.client.post('/post/'+str(postId)+'/like/')
+        self.assertEqual(response.status_code, 200)
         response = self.client.delete('/post/'+str(postId)+'/', json.dumps({'password': '1234'}), content_type="application/json")
+        self.assertEqual(response.status_code, 204)
+
+    def test_post_comment_service(self):
+        response = self.client.post('/post/1/comment/', json.dumps({'content': '', 'username': 't1', 'password': '1234'}), content_type="application/json")
+        self.assertEqual(response.status_code, 400)
+        response = self.client.post('/post/1/comment/', json.dumps({'content': 'not empty', 'username': 't1', 'password': '1234'}), content_type="application/json")
+        self.assertEqual(response.status_code, 201)
+        data = response.json()
+        commentId = data['id']
+        response = self.client.post('/comment/'+str(commentId)+'/', json.dumps({'content': 'not empty not empty', 'username': 't1 t1', 'password': '1233'}), content_type="application/json")
+        self.assertEqual(response.status_code, 400)
+        response = self.client.post('/comment/'+str(commentId)+'/', json.dumps({'content': 'not empty not empty', 'username': 't1 t1', 'password': '1234'}), content_type="application/json")
+        self.assertEqual(response.status_code, 201)
+        response = self.client.delete('/comment/'+str(commentId)+'/', json.dumps({'password': '1233'}), content_type="application/json")
+        self.assertEqual(response.status_code, 400)
+        response = self.client.post('/comment/'+str(commentId)+'/like/')
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get('/post/1/comment/')
+        self.assertEqual(response.status_code, 200)
+        response = self.client.delete('/comment/'+str(commentId)+'/', json.dumps({'password': '1234'}), content_type="application/json")
         self.assertEqual(response.status_code, 204)
 
     def test_post_list(self):

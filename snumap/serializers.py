@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm
+from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm, Comment
 
 class SpotSerializer(serializers.ModelSerializer):
     class Meta:
@@ -80,11 +80,17 @@ class LectureSerializer(serializers.ModelSerializer):
         model = Lecture
         fields = '__all__'
 
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
 class PostSerializer(serializers.ModelSerializer):
     building = BuildingBasicSerializer(read_only=True)
+    comments = CommentSerializer(many=True, read_only=True)
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ('id','created','title', 'content', 'username', 'password', 'building', 'like', 'comments')
 
 class BuildingSerializer(serializers.ModelSerializer):
     spot = SpotSerializer(read_only=True)

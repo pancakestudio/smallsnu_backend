@@ -94,3 +94,12 @@ class Post(models.Model):
     username = models.CharField(max_length=200)
     password = models.CharField(max_length=200)
     building = models.ForeignKey(Building, related_name='posts', on_delete=models.CASCADE)
+    like = models.IntegerField(default=0)
+
+class Comment(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
+    username = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    like = models.IntegerField(default=0)
