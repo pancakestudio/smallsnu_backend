@@ -17,7 +17,14 @@
 | `post/<int:postId>/` | 게시물 수정 | POST |
 | `post/<int:postId>/` | 게시물 조회 | GET |
 | `post/<int:postId>/` | 게시물 삭제 | DELETE |
+| `post/<int:postId>/like/` | 게시물 좋아요 | POST |
+| `post/<int:postId>/comment/` | 댓글 등록 | POST |
+| `post/<int:postId>/comment/` | 게시물별 댓글 리스트 | GET |
 | `post/` | 전체 게시물 리스트 | GET |
+| `comment/<int:commentId>/` | 댓글 수정 | POST |
+| `comment/<int:commentId>/` | 댓글 조회 | GET |
+| `comment/<int:commentId>/` | 댓글 삭제 | DELETE |
+| `comment/<int:commentId>/like/` | 댓글 좋아요 | POST |
 | `seminar/` | 전체 세미나 리스트 | GET |
 | `seminar/<int:pk>/` | 세미나 조회 | GET |
 | `restaurant/` | 전체 식당 리스트 | GET |
