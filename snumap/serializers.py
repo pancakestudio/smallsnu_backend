@@ -83,14 +83,14 @@ class LectureSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = '__all__'
+        fields = ('id','created', 'content', 'username', 'post', 'like')
 
 class PostSerializer(serializers.ModelSerializer):
     building = BuildingBasicSerializer(read_only=True)
     comments = CommentSerializer(many=True, read_only=True)
     class Meta:
         model = Post
-        fields = ('id','created','title', 'content', 'username', 'password', 'building', 'like', 'comments')
+        fields = ('id','created','title', 'content', 'username', 'building', 'like', 'comments')
 
 class BuildingSerializer(serializers.ModelSerializer):
     spot = SpotSerializer(read_only=True)
