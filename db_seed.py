@@ -176,3 +176,31 @@ for building in Building.objects.all():
             password = "1234",
             building = building
         ).save()
+
+#Set building infos
+for building in Building.objects.all():
+    info = "건물번호:"+building.code+"\n"
+    info += "건물이름:"+building.kr_name+"\n"
+    info += "건물영어이름:"+building.en_name+"\n"
+    info += "식당:"
+    for restaurant in building.restaurants.all():
+        info += restaurant.kr_name+","
+    info += "\n"
+    info += "카페:"
+    for cafe in building.cafes.all():
+        info += cafe.kr_name+","
+    info += "\n"
+    info += "편의점:"
+    for conv in building.convs.all():
+        info += conv.kr_name+","
+    info += "\n"
+    info += "은행:"
+    for bank in building.banks.all():
+        info += bank.kr_name+","
+    info += "\n"
+    info += "ATM:"
+    for atm in building.atms.all():
+        info += atm.kr_name+","
+    info += "\n"
+    building.info = info
+    building.save()
