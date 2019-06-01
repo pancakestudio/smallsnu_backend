@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm, Comment
-from .serializers import SpotSerializer, MapSerializer, EdgeSerializer, ShuttleSerializer, RouteSerializer, RestaurantSerializer, SeminarSerializer, LectureSerializer, PostSerializer, BuildingSerializer, CafeSerializer, ConvSerializer, BankSerializer, AtmSerializer, CommentSerializer
+from .serializers import SpotSerializer, MapSerializer, EdgeSerializer, ShuttleSerializer, RouteSerializer, RestaurantSerializer, SeminarSerializer, LectureSerializer, PostSerializer, BuildingSerializer, CafeSerializer, ConvSerializer, BankSerializer, AtmSerializer, CommentSerializer, BuildingBasicSerializer
 import json
 
 @api_view(['GET'])
@@ -285,12 +285,35 @@ def route_list(request):
     serializer = RouteSerializer(routes, many=True)
     return Response(serializer.data)
 
+def contain_keyword_check(origin, keyword):
+    origin = origin.lower()
+    keyword = keyword.lower()
+    currentIndex = -1
+    for c in keyword:
+        i = origin.find(c)
+        if i == -1:
+            return False
+        if currentIndex < i:
+            currentIndex = i
+            continue
+        else:
+            return False
+    return True
+
 @api_view(['GET'])
 def search(request):
     keyword = request.GET.get('q', '')
     if keyword == '':
-        content = {'warring': 'empty start or end is not allowed'}
+        content = {'warring': 'empty keyword is not allowed'}
         return Response(content, status=status.HTTP_400_BAD_REQUEST)
-    routes = Route.objects.all()
-    serializer = RouteSerializer(routes, many=True)
+    selected_building_list = Building.objects.filter(info__icontains = keyword)
+    selected_id_list = []
+    for building in selected_building_list:
+        selected_id_list.append(building.id)
+    for building in Building.objects.all():
+        if contain_keyword_check(building.kr_name, keyword) and (not (building.id in selected_id_list)):
+            selected_id_list.append(building.id)
+    buildings = Building.objects.filter(id__in=selected_id_list)
+    serializer = BuildingBasicSerializer(buildings, many=True)
     return Response(serializer.data)
+
