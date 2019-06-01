@@ -41,6 +41,7 @@
 | `lecture/` | 전체 강의 리스트 | GET |
 | `lecture/<int:pk>` | 강의 조회 | GET |
 | `route/?from=v1&to=v2` | 길 찾기 | GET |
+| `search/?q=keyword` | 통합검색 | GET |
 
 
 ## Dependency

@@ -387,3 +387,14 @@ class RestTests(TestCase):
         response = self.client.get('/route/', {'from': 'here', 'to': 'there'})
         data = response.json()
         self.assertEqual(response.status_code, 200)
+        response = self.client.get('/route/')
+        data = response.json()
+        self.assertEqual(response.status_code, 400)
+
+    def test_search(self):
+        response = self.client.get('/search/', {'q': '공학'})
+        data = response.json()
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get('/search/')
+        data = response.json()
+        self.assertEqual(response.status_code, 400)

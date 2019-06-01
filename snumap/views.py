@@ -278,6 +278,19 @@ def lecture_detail(request, pk):
 def route_list(request):
     start = request.GET.get('from', '')
     end = request.GET.get('to', '')
+    if start == '' or end == '':
+        content = {'warring': 'empty start or end is not allowed'}
+        return Response(content, status=status.HTTP_400_BAD_REQUEST)
+    routes = Route.objects.all()
+    serializer = RouteSerializer(routes, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def search(request):
+    keyword = request.GET.get('q', '')
+    if keyword == '':
+        content = {'warring': 'empty start or end is not allowed'}
+        return Response(content, status=status.HTTP_400_BAD_REQUEST)
     routes = Route.objects.all()
     serializer = RouteSerializer(routes, many=True)
     return Response(serializer.data)

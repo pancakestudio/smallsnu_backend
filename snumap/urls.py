@@ -37,6 +37,7 @@ urlpatterns = [
     path('lecture/', views.lecture_list),
     path('lecture/<int:pk>/', views.lecture_detail),
     path('route/', views.route_list),
+    path('search/', views.search),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
 ]
 
