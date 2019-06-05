@@ -69,7 +69,7 @@ def econSeminar():
     from snumap.models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post
     req = requests.get('http://econ.snu.ac.kr/research/seminars/list-view')
     if not req.ok:
-        print("Error: request to cseSeminar has failed")
+        print("Error: request to econSeminar has failed")
     html = req.text
     soup = BeautifulSoup(html, 'html.parser')
     Seminars = soup.select(
@@ -85,20 +85,15 @@ def econSeminar():
         else:
             continue
         detailReq = requests.get(link)
+        detailReq.encoding = 'UTF-8'
         detailHtml = detailReq.text
         detailSoup = BeautifulSoup(detailHtml, 'html.parser')
         detailContents = detailSoup.select('div.seminarview')[0]
         title = detailContents.find('h3').text
-        talkerData = detailContents.select('div')[2]
-        talker = talkerData.find(text=True)
-        talkerFrom = talkerData.find('div')
-        for br in talkerFrom.find_all("br"):
-            br.replace_with("-")
-        if talkerFrom.text is not None:
-            talker = talker+"-"+talkerFrom.text
-        time = detailContents.select('div')[1].text
-        where = detailContents.select('div')[3].text
-        description = detailContents.select('div')[4].text
+        talker = detailContents.select('div')[2].text[9:]
+        time = detailContents.select('div')[1].text[6:]
+        where = detailContents.select('div')[3].text[10:]
+        description = "No description."
         codePattern = re.compile('\d+')
         codeMatch = codePattern.search(where)
         code = ""
@@ -107,7 +102,7 @@ def econSeminar():
         else:
             print("no code is found in where information")
         try:
-            building = Building.objects.get(code__startswith=code)
+            building = Building.objects.get(code=code)
         except Building.DoesNotExist:
             print("error: no such a Building code:"+code+"/")
         except Building.MultipleObjectsReturned:
