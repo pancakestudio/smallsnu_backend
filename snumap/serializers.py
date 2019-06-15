@@ -20,10 +20,10 @@ class EdgeSerializer(serializers.ModelSerializer):
 
 class MapSerializer(serializers.ModelSerializer):
     spots = SpotSerializer(many=True, read_only=True)
-    edges = EdgeSerializer(many=True, read_only=True)
+    # edges = EdgeSerializer(many=True, read_only=True)
     class Meta:
         model = Map
-        fields = ('id', 'link', 'spots', 'edges')
+        fields = ('id', 'link', 'spots')
 
 class ShuttleSerializer(serializers.ModelSerializer):
     edges = EdgeSerializer(many=True, read_only=True)
