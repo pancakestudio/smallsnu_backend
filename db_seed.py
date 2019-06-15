@@ -1,4 +1,5 @@
 import json
+import geopy.distance
 
 from snumap.models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm
 
@@ -11,7 +12,7 @@ with open('restaurants_new.json') as data_file_restaurant:
     restaurant_data = json.load(data_file_restaurant)
 
 #Load cafes.json
-with open('cafes.json') as data_file_cafe:    
+with open('cafes.json') as data_file_cafe:
     cafe_data = json.load(data_file_cafe)
 
 #Load convs.json
@@ -89,6 +90,27 @@ for building in building_data:
         longitude = spot.longitude,
         info = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A cras semper auctor neque vitae tempus quam pellentesque. Nibh ipsum consequat nisl vel pretium lectus quam id. Lectus sit amet est placerat in egestas. Mi sit amet mauris commodo quis imperdiet massa. Arcu non odio euismod lacinia at quis risus sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Egestas sed sed risus pretium quam. Blandit libero volutpat sed cras. Rutrum quisque non tellus orci ac auctor augue. Mauris in aliquam sem fringilla. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Neque laoreet suspendisse interdum consectetur libero. Morbi tristique senectus et netus et malesuada fames ac. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Quis eleifend quam adipiscing vitae proin sagittis. Nibh ipsum consequat nisl vel. Id leo in vitae turpis massa sed."
     ).save()
+
+#Edge
+for spot in Spot.objects.all():
+    id = spot.id
+    targetSpots = Spot.objects.filter(id__gt=id)
+    for targetSpot in targetSpots:
+        start = (spot.latitude, spot.longitude)
+        end = (targetSpot.latitude, targetSpot.longitude)
+        length=float(geopy.distance.geodesic(start, end).km)
+        if length > 0.2:
+            #print("skip: "+ str(spot.id)+"&"+str(targetSpot.id))
+            continue
+        edge = Edge(
+            map=Map.objects.all()[0],
+            length=length
+        )
+        edge.save()
+        edge.spots.add(spot)
+        edge.spots.add(targetSpot)
+        edge.save()
+        #print("add: "+ str(spot.id)+"&"+str(targetSpot.id))
 
 #Restaurant
 for restaurant in restaurant_data:

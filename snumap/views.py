@@ -272,18 +272,51 @@ def lecture_detail(request, pk):
     serializer = LectureSerializer(lecture)
     return Response(serializer.data)
 
-# have to edit route_list
+
+#print without first vertex
+def findPath(start, end, key):
+    if start == end:
+        return []
+    if key[start][end] == -1:
+        return []
+    if key[start][end] == 0:
+        return [end]
+    else:
+        keyVertex = key[start][end]
+        return findPath(start, keyVertex, key) + findPath(keyVertex, end, key)
 
 @api_view(['GET'])
 def route_list(request):
+    with open('key.json') as data_file_key:
+        key = json.load(data_file_key)
+    with open('dist.json') as data_file_dist:
+        dist = json.load(data_file_dist)
+    with open('edgeId.json') as data_file_edgeId:
+        edgeId = json.load(data_file_edgeId)
     start = request.GET.get('from', '')
     end = request.GET.get('to', '')
     if start == '' or end == '':
-        content = {'warring': 'empty start or end is not allowed'}
+        content = {'warring': 'empty from or to is not allowed'}
         return Response(content, status=status.HTTP_400_BAD_REQUEST)
-    routes = Route.objects.all()
-    serializer = RouteSerializer(routes, many=True)
-    return Response(serializer.data)
+    #routes = Route.objects.all()
+    #serializer = RouteSerializer(routes, many=True)
+    #making path data
+    start = int(start)
+    end = int(end)
+    path = findPath(start, end, key)
+    if len(path) != 0:
+        path = [start] + path
+    #making dist data
+    length = dist[start][end]
+    lengthStr = str(length)+"km"
+    #making expected time
+    time = str((length/5.0)*60.0)+"분"
+    totalData = {
+        'path': path,
+        'length': lengthStr,
+        'time': time
+    }
+    return Response(totalData)
 
 def contain_keyword_check(origin, keyword):
     origin = origin.lower()

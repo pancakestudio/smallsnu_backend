@@ -384,7 +384,7 @@ class RestTests(TestCase):
         self.assertEqual(True, True)
 
     def test_route_list(self):
-        response = self.client.get('/route/', {'from': 'here', 'to': 'there'})
+        response = self.client.get('/route/', {'from': '1', 'to': '2'})
         data = response.json()
         self.assertEqual(response.status_code, 200)
         response = self.client.get('/route/')
