@@ -306,13 +306,18 @@ def route_list(request):
     path = findPath(start, end, key)
     if len(path) != 0:
         path = [start] + path
+    pathSpots = []
+    for spotId in path:
+        spot = Spot.objects.get(pk=spotId)
+        serializer = SpotSerializer(spot)
+        pathSpots.append(serializer.data)
     #making dist data
     length = dist[start][end]
     lengthStr = str(length)+"km"
     #making expected time
     time = str((length/5.0)*60.0)+"분"
     totalData = {
-        'path': path,
+        'path': pathSpots,
         'length': lengthStr,
         'time': time
     }
