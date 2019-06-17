@@ -205,39 +205,39 @@ for building in Building.objects.all():
     info += "건물이름:"+building.kr_name+"\n"
     info += "건물영어이름:"+building.en_name+"\n"
     #restaurant
-    if building.restaurants.count != 0:
+    if building.restaurants.count() != 0:
         info += "식당:"
     for restaurant in building.restaurants.all():
         info += restaurant.kr_name+","
-    if building.restaurants.count != 0:
+    if building.restaurants.count() != 0:
         info += "\n"
     #cafes
-    if building.cafes.count != 0:
+    if building.cafes.count() != 0:
         info += "카페:"
     for cafe in building.cafes.all():
         info += cafe.kr_name+","
-    if building.cafes.count != 0:
+    if building.cafes.count() != 0:
         info += "\n"
     #convs
-    if building.convs.count != 0:
+    if building.convs.count() != 0:
         info += "편의점:"
     for conv in building.convs.all():
         info += conv.kr_name+","
-    if building.convs.count != 0:
+    if building.convs.count() != 0:
         info += "\n"
     #banks
-    if building.banks.count != 0:
+    if building.banks.count() != 0:
         info += "은행:"
     for bank in building.banks.all():
         info += bank.kr_name+","
-    if building.banks.count != 0:
+    if building.banks.count() != 0:
         info += "\n"
     #atms
-    if building.atms.count != 0:
+    if building.atms.count() != 0:
         info += "ATM:"
     for atm in building.atms.all():
         info += atm.kr_name+","
-    if building.atms.count != 0:
+    if building.atms.count() != 0:
         info += "\n"
     #done
     building.info = info
