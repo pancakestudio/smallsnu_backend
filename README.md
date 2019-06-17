@@ -59,5 +59,10 @@
 - python3 manage.py migrate
 - python3 manage.py shell < db_seed.py
 - python3 manage.py shell < crawler.py
+- python3 manage.py shell < pathFinder.py
 - python3 manage.py runserver
+
+## Crontab 등록
+- crontab -e
+- 0 19 * * * /절대경로/.env/bin/python3 /절대경로/manage.py shell < /절대경로/crawler.py
 

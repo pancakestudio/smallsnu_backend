@@ -4,7 +4,10 @@ certifi==2019.3.9
 chardet==3.0.4
 Django==2.2
 django-cors-headers==2.5.2
+django-crontab==0.7.1
 djangorestframework==3.9.2
+geographiclib==1.49
+geopy==1.20.0
 idna==2.8
 pytz==2019.1
 requests==2.21.0

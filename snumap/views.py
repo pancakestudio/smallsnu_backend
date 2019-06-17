@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post, Cafe, Conv, Bank, Atm, Comment
-from .serializers import SpotSerializer, MapSerializer, EdgeSerializer, ShuttleSerializer, RouteSerializer, RestaurantSerializer, SeminarSerializer, LectureSerializer, PostSerializer, BuildingSerializer, CafeSerializer, ConvSerializer, BankSerializer, AtmSerializer, CommentSerializer
+from .serializers import SpotSerializer, MapSerializer, EdgeSerializer, ShuttleSerializer, RouteSerializer, RestaurantSerializer, SeminarSerializer, LectureSerializer, PostSerializer, BuildingSerializer, CafeSerializer, ConvSerializer, BankSerializer, AtmSerializer, CommentSerializer, BuildingBasicSerializer
 import json
 
 @api_view(['GET'])
@@ -272,25 +272,87 @@ def lecture_detail(request, pk):
     serializer = LectureSerializer(lecture)
     return Response(serializer.data)
 
-# have to edit route_list
+
+#print without first vertex
+def findPath(start, end, key):
+    if start == end:
+        return []
+    if key[start][end] == -1:
+        return []
+    if key[start][end] == 0:
+        return [end]
+    else:
+        keyVertex = key[start][end]
+        return findPath(start, keyVertex, key) + findPath(keyVertex, end, key)
 
 @api_view(['GET'])
 def route_list(request):
+    with open('key.json') as data_file_key:
+        key = json.load(data_file_key)
+    with open('dist.json') as data_file_dist:
+        dist = json.load(data_file_dist)
+    with open('edgeId.json') as data_file_edgeId:
+        edgeId = json.load(data_file_edgeId)
     start = request.GET.get('from', '')
     end = request.GET.get('to', '')
     if start == '' or end == '':
-        content = {'warring': 'empty start or end is not allowed'}
+        content = {'warring': 'empty from or to is not allowed'}
         return Response(content, status=status.HTTP_400_BAD_REQUEST)
-    routes = Route.objects.all()
-    serializer = RouteSerializer(routes, many=True)
-    return Response(serializer.data)
+    #routes = Route.objects.all()
+    #serializer = RouteSerializer(routes, many=True)
+    #making path data
+    start = int(start)
+    end = int(end)
+    path = findPath(start, end, key)
+    if len(path) != 0:
+        path = [start] + path
+    pathSpots = []
+    for spotId in path:
+        spot = Spot.objects.get(pk=spotId)
+        serializer = SpotSerializer(spot)
+        pathSpots.append(serializer.data)
+    #making dist data
+    length = float(dist[start][end])
+    length_m = length*1000.0
+    lengthStr = str(length_m)
+    #making expected time
+    time = str((length/5.0)*60.0)
+    totalData = {
+        'path': pathSpots,
+        'length': lengthStr,
+        'time': time
+    }
+    return Response(totalData)
+
+def contain_keyword_check(origin, keyword):
+    origin = origin.lower()
+    keyword = keyword.lower()
+    currentIndex = -1
+    for c in keyword:
+        i = origin.find(c)
+        if i == -1:
+            return False
+        if currentIndex < i:
+            currentIndex = i
+            continue
+        else:
+            return False
+    return True
 
 @api_view(['GET'])
 def search(request):
     keyword = request.GET.get('q', '')
     if keyword == '':
-        content = {'warring': 'empty start or end is not allowed'}
+        content = {'warring': 'empty keyword is not allowed'}
         return Response(content, status=status.HTTP_400_BAD_REQUEST)
-    routes = Route.objects.all()
-    serializer = RouteSerializer(routes, many=True)
+    selected_building_list = Building.objects.filter(info__icontains = keyword)
+    selected_id_list = []
+    for building in selected_building_list:
+        selected_id_list.append(building.id)
+    for building in Building.objects.all():
+        if contain_keyword_check(building.kr_name, keyword) and (not (building.id in selected_id_list)):
+            selected_id_list.append(building.id)
+    buildings = Building.objects.filter(id__in=selected_id_list)
+    serializer = BuildingBasicSerializer(buildings, many=True)
     return Response(serializer.data)
+

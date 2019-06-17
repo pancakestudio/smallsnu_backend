@@ -12,6 +12,8 @@ class Spot(models.Model):
 
 class Edge(models.Model):
     spots = models.ManyToManyField(Spot, related_name='edges')
+    length = models.FloatField()
+    map = models.ForeignKey(Map , related_name='edges', on_delete=models.CASCADE)
 
 class Shuttle(models.Model):
     kr_name = models.CharField(max_length=200)

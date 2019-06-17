@@ -12,17 +12,18 @@ class BuildingBasicSerializer(serializers.ModelSerializer):
         model = Building
         fields = ('id', 'code','kr_name', 'en_name', 'spot')
 
-class MapSerializer(serializers.ModelSerializer):
-    spots = SpotSerializer(many=True, read_only=True)
-    class Meta:
-        model = Map
-        fields = ('id', 'link', 'spots')
-
 class EdgeSerializer(serializers.ModelSerializer):
     spots = SpotSerializer(many=True, read_only=True)
     class Meta:
         model = Edge
-        fields = ('id', 'spots')
+        fields = ('id', 'spots', 'length')
+
+class MapSerializer(serializers.ModelSerializer):
+    spots = SpotSerializer(many=True, read_only=True)
+    # edges = EdgeSerializer(many=True, read_only=True)
+    class Meta:
+        model = Map
+        fields = ('id', 'link', 'spots')
 
 class ShuttleSerializer(serializers.ModelSerializer):
     edges = EdgeSerializer(many=True, read_only=True)
