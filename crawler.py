@@ -2,6 +2,8 @@ def cseSeminar():
     import requests
     from bs4 import BeautifulSoup
     import re
+    import datetime
+    from dateutil.parser import parse
     from snumap.models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post
     req = requests.get('https://cse.snu.ac.kr/seminars')
     if not req.ok:
@@ -34,7 +36,7 @@ def cseSeminar():
             br.replace_with("-")
         if talkerFrom.text is not None:
             talker = talker+"-"+talkerFrom.text
-        time = detailContents[1].text
+        ttime = detailContents[1].text
         where = detailContents[2].text
         description = detailContents[4].text
         codePattern = re.compile('\d+')
@@ -50,6 +52,30 @@ def cseSeminar():
             print("error: no such a Building code:"+code+"/")
         except Building.MultipleObjectsReturned:
             print("error: ther is duplicated Building that has the code:"+code)
+        temptime = ttime.split('-')
+        timepattern = re.compile("\d+| \d+|[a-z:A-Z_]+")
+        temptime2 = timepattern.findall(temptime[0])
+        timett1 = ''
+        num1 = 0
+        for i in temptime2:
+            num1 = num1 + 1
+            if(num1 == 4) :
+                continue
+            timett1 = timett1 + i
+        timett1 = timett1 + ' ' + temptime2[3]
+        time = parse(timett1).strftime('%Y %m %d %H:%M') + ' ~ '
+        if(len(temptime) > 1) :
+            temptime3 = timepattern.findall(temptime[1])
+            timett2 = ''
+            num2 = 0
+            for i in temptime3:
+                num2 = num2 + 1
+                if(num2 == 4) :
+                    continue
+                timett2 = timett2 + i
+            timett2 = timett2 + ' ' + temptime3[3]
+            tttime = parse(timett2).strftime('%H:%M')
+            time = time + tttime
         Seminar(
             title=title,
             talker=talker,
@@ -59,13 +85,14 @@ def cseSeminar():
             time=time,
             link=link
         ).save()
-
 cseSeminar()
 
 def econSeminar():
     import requests
     from bs4 import BeautifulSoup
     import re
+    import datetime
+    from dateutil.parser import parse
     from snumap.models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant, Seminar, Lecture, Post
     req = requests.get('http://econ.snu.ac.kr/research/seminars/list-view')
     if not req.ok:
@@ -91,7 +118,7 @@ def econSeminar():
         detailContents = detailSoup.select('div.seminarview')[0]
         title = detailContents.find('h3').text
         talker = detailContents.select('div')[2].text[9:]
-        time = detailContents.select('div')[1].text[6:]
+        ttime = detailContents.select('div')[1].text[6:]
         where = detailContents.select('div')[3].text[10:]
         description = "No description."
         codePattern = re.compile('\d+')
@@ -107,6 +134,9 @@ def econSeminar():
             print("error: no such a Building code:"+code+"/")
         except Building.MultipleObjectsReturned:
             print("error: ther is duplicated Building that has the code:"+code)
+        temptime = ttime.split(',')
+        temptime2 = parse(temptime[2] + temptime[1]).strftime("%Y %m %d")
+        time = temptime2 + temptime[3]
         Seminar(
             title=title,
             talker=talker,
