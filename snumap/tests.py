@@ -9,6 +9,10 @@ class RestTests(TestCase):
         with open('buildings3.json') as data_file_building:
             building_data = json.load(data_file_building)
 
+        #Load addSpots.json
+        with open('addSpots.json') as data_file_add_spot:
+            add_spot_data = json.load(data_file_add_spot)
+
         #Load restaurants_new.json
         with open('restaurants_new.json') as data_file_restaurant:    
             restaurant_data = json.load(data_file_restaurant)
@@ -92,6 +96,20 @@ class RestTests(TestCase):
                 longitude = spot.longitude,
                 info = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A cras semper auctor neque vitae tempus quam pellentesque. Nibh ipsum consequat nisl vel pretium lectus quam id. Lectus sit amet est placerat in egestas. Mi sit amet mauris commodo quis imperdiet massa. Arcu non odio euismod lacinia at quis risus sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Egestas sed sed risus pretium quam. Blandit libero volutpat sed cras. Rutrum quisque non tellus orci ac auctor augue. Mauris in aliquam sem fringilla. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Neque laoreet suspendisse interdum consectetur libero. Morbi tristique senectus et netus et malesuada fames ac. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Quis eleifend quam adipiscing vitae proin sagittis. Nibh ipsum consequat nisl vel. Id leo in vitae turpis massa sed."
             ).save()
+
+        #Add spots
+        for spot in add_spot_data:
+            id = int(spot['id'])
+            if id <= 162:
+                continue
+            lat = spot['latlng']['lat']
+            lng = spot['latlng']['lng']
+            new_spot = Spot(
+                latitude=float(lat),
+                longitude=float(lng),
+                map=Map.objects.all()[0]
+            )
+            new_spot.save()
 
         #Restaurant
         for restaurant in restaurant_data:

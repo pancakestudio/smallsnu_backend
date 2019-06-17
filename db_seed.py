@@ -7,6 +7,14 @@ from snumap.models import Map, Spot, Edge, Shuttle, Route, Building, Restaurant,
 with open('buildings3.json') as data_file_building:
     building_data = json.load(data_file_building)
 
+#Load addSpots.json
+with open('addSpots.json') as data_file_add_spot:
+    add_spot_data = json.load(data_file_add_spot)
+
+#Load newEdgeInfos.json
+with open('newEdgeInfos.json') as data_file_edge:
+    edge_data = json.load(data_file_edge)
+
 #Load restaurants_new.json
 with open('restaurants_new.json') as data_file_restaurant:    
     restaurant_data = json.load(data_file_restaurant)
@@ -91,26 +99,64 @@ for building in building_data:
         info = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A cras semper auctor neque vitae tempus quam pellentesque. Nibh ipsum consequat nisl vel pretium lectus quam id. Lectus sit amet est placerat in egestas. Mi sit amet mauris commodo quis imperdiet massa. Arcu non odio euismod lacinia at quis risus sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Egestas sed sed risus pretium quam. Blandit libero volutpat sed cras. Rutrum quisque non tellus orci ac auctor augue. Mauris in aliquam sem fringilla. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Porttitor massa id neque aliquam vestibulum morbi blandit cursus risus. Neque laoreet suspendisse interdum consectetur libero. Morbi tristique senectus et netus et malesuada fames ac. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Quis eleifend quam adipiscing vitae proin sagittis. Nibh ipsum consequat nisl vel. Id leo in vitae turpis massa sed."
     ).save()
 
+#Add spots
+for spot in add_spot_data:
+    id = int(spot['id'])
+    if id <= 162:
+        continue
+    lat = spot['latlng']['lat']
+    lng = spot['latlng']['lng']
+    new_spot = Spot(
+        latitude=float(lat),
+        longitude=float(lng),
+        map=Map.objects.all()[0]
+    )
+    new_spot.save()
+
 #Edge
-for spot in Spot.objects.all():
-    id = spot.id
-    targetSpots = Spot.objects.filter(id__gt=id)
-    for targetSpot in targetSpots:
-        start = (spot.latitude, spot.longitude)
-        end = (targetSpot.latitude, targetSpot.longitude)
-        length=float(geopy.distance.geodesic(start, end).km)
-        if length > 0.2:
-            #print("skip: "+ str(spot.id)+"&"+str(targetSpot.id))
-            continue
-        edge = Edge(
-            map=Map.objects.all()[0],
-            length=length
-        )
-        edge.save()
-        edge.spots.add(spot)
-        edge.spots.add(targetSpot)
-        edge.save()
-        #print("add: "+ str(spot.id)+"&"+str(targetSpot.id))
+for edge in edge_data:
+    from_id = edge['from']
+    to_id = edge['to']
+    try:
+        from_spot = Spot.objects.get(pk=from_id)
+    except:
+        print(from_id)
+    try:
+        to_spot = Spot.objects.get(pk=to_id)
+    except:
+        print(to_id)
+    from_coor = (from_spot.latitude, from_spot.longitude)
+    to_coor = (to_spot.latitude, to_spot.longitude)
+    length = float(geopy.distance.geodesic(from_coor, to_coor).km)
+    new_edge = Edge(
+        map=Map.objects.all()[0],
+        length=length
+    )
+    new_edge.save()
+    new_edge.spots.add(from_spot)
+    new_edge.spots.add(to_spot)
+    new_edge.save()
+
+# #Edge
+# for spot in Spot.objects.all():
+#     id = spot.id
+#     targetSpots = Spot.objects.filter(id__gt=id)
+#     for targetSpot in targetSpots:
+#         start = (spot.latitude, spot.longitude)
+#         end = (targetSpot.latitude, targetSpot.longitude)
+#         length=float(geopy.distance.geodesic(start, end).km)
+#         if length > 0.2:
+#             #print("skip: "+ str(spot.id)+"&"+str(targetSpot.id))
+#             continue
+#         edge = Edge(
+#             map=Map.objects.all()[0],
+#             length=length
+#         )
+#         edge.save()
+#         edge.spots.add(spot)
+#         edge.spots.add(targetSpot)
+#         edge.save()
+#         #print("add: "+ str(spot.id)+"&"+str(targetSpot.id))
 
 #Restaurant
 for restaurant in restaurant_data:
@@ -209,6 +255,7 @@ for building in Building.objects.all():
         info += "식당:"
     for restaurant in building.restaurants.all():
         info += restaurant.kr_name+","
+    info = info.rstrip(',')
     if building.restaurants.count() != 0:
         info += "\n"
     #cafes
@@ -216,6 +263,7 @@ for building in Building.objects.all():
         info += "카페:"
     for cafe in building.cafes.all():
         info += cafe.kr_name+","
+    info = info.rstrip(',')
     if building.cafes.count() != 0:
         info += "\n"
     #convs
@@ -223,6 +271,7 @@ for building in Building.objects.all():
         info += "편의점:"
     for conv in building.convs.all():
         info += conv.kr_name+","
+    info = info.rstrip(',')
     if building.convs.count() != 0:
         info += "\n"
     #banks
@@ -230,6 +279,7 @@ for building in Building.objects.all():
         info += "은행:"
     for bank in building.banks.all():
         info += bank.kr_name+","
+    info = info.rstrip(',')
     if building.banks.count() != 0:
         info += "\n"
     #atms
@@ -237,6 +287,7 @@ for building in Building.objects.all():
         info += "ATM:"
     for atm in building.atms.all():
         info += atm.kr_name+","
+    info = info.rstrip(',')
     if building.atms.count() != 0:
         info += "\n"
     #done

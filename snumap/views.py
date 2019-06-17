@@ -312,10 +312,11 @@ def route_list(request):
         serializer = SpotSerializer(spot)
         pathSpots.append(serializer.data)
     #making dist data
-    length = dist[start][end]
-    lengthStr = str(length)+"km"
+    length = float(dist[start][end])
+    length_m = length*1000.0
+    lengthStr = str(length_m)
     #making expected time
-    time = str((length/5.0)*60.0)+"분"
+    time = str((length/5.0)*60.0)
     totalData = {
         'path': pathSpots,
         'length': lengthStr,
