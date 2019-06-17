@@ -3296,27 +3296,6 @@
         "kr_name": "약학관5(142동)",
         "en_name": "College of Pharmacy 5(142DONG)"
     },
-    { 
-        "building_no": "65",
-        "coord_1": [
-            37.45745,
-            126.95399
-        ],
-        "coord_2": [
-            37.45764,
-            126.95427
-        ],
-        "coord_3": [
-            37.45812,
-            126.95371
-        ],
-        "coord_4": [
-            37.45794,
-            126.95346
-        ],
-        "kr_name": "교수회관(65동)",
-        "en_name": "Faculty Club(65DONG)"
-    },
     {
         "building_no": "66",
         "coord_1": [
@@ -3400,5 +3379,26 @@
         ],
         "kr_name": "규장각한국학연구원(103동)",
         "en_name": "Kyujanggak Institute for Korean Studies(103DONG)"
+    },
+    { 
+        "building_no": "65",
+        "coord_1": [
+            37.45745,
+            126.95399
+        ],
+        "coord_2": [
+            37.45764,
+            126.95427
+        ],
+        "coord_3": [
+            37.45812,
+            126.95371
+        ],
+        "coord_4": [
+            37.45794,
+            126.95346
+        ],
+        "kr_name": "교수회관(65동)",
+        "en_name": "Faculty Club(65DONG)"
     }
 ]
